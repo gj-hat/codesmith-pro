@@ -1,7 +1,7 @@
-package com.example.springboot.service;
+package com.autogen.code.web.service;
 
-import com.example.springboot.domain.TemplateManageDomain;
-import com.example.springboot.mapper.TemplateManageMapper;
+import com.autogen.code.web.domain.TemplateManageDomain;
+import com.autogen.code.web.mapper.TemplateManageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

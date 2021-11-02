@@ -1,4 +1,4 @@
-package com.example.springboot.domain;
+package com.autogen.code.web.domain;
 
 public class TemplateDiyDomain {
 

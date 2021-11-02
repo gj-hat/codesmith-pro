@@ -1,8 +1,8 @@
-package com.example.springboot.controller;
+package com.autogen.code.web.controller;
 
 
-import com.example.springboot.domain.TemplateDiyDomain;
-import com.example.springboot.service.TemplateDiyService;
+import com.autogen.code.web.domain.TemplateDiyDomain;
+import com.autogen.code.web.service.TemplateDiyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

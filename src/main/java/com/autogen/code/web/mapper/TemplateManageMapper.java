@@ -1,6 +1,6 @@
-package com.example.springboot.mapper;
+package com.autogen.code.web.mapper;
 
-import com.example.springboot.domain.TemplateManageDomain;
+import com.autogen.code.web.domain.TemplateManageDomain;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

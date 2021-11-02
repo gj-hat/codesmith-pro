@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.springboot.mapper.TemplateDiyMapperMapper">
-    <select id="findAll" resultType="com.example.springboot.domain.TemplateDiyDomainDomain">
+<mapper namespace="com.autogen.code.web.mapper.TemplateDiyMapperMapper">
+    <select id="findAll" resultType="com.autogen.code.web.domain.TemplateDiyDomainDomain">
         select * from teststudy.public."TemplateDiy"
     </select>
 
-    <select id="findId" resultType="com.example.springboot.domain.TemplateDiyDomainDomain">
+    <select id="findId" resultType="com.autogen.code.web.domain.TemplateDiyDomainDomain">
         select * from teststudy.public."TemplateDiy" where "templateId" = #{templateId}
     </select>
 

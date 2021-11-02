@@ -2,20 +2,20 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.springboot.mapper.TemplateManageMapper">
-    <select id="findAll" resultType="com.example.springboot.domain.TemplateManageDomain">
+<mapper namespace="com.autogen.code.web.mapper.TemplateManageMapper">
+    <select id="findAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">
         select * from teststudy.public."TemplateManage"
     </select>
 
-    <select id="findNotAll" resultType="com.example.springboot.domain.TemplateManageDomain">
+    <select id="findNotAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">
         select * from teststudy.public."TemplateManage" where "delMark" = false
     </select>
 
-    <select id="findId" resultType="com.example.springboot.domain.TemplateManageDomain">
+    <select id="findId" resultType="com.autogen.code.web.domain.TemplateManageDomain">
         select * from teststudy.public."TemplateManage" where "templateId" = #{templateId}
     </select>
 
-    <insert id="insertData" parameterType="com.example.springboot.domain.TemplateManageDomain">
+    <insert id="insertData" parameterType="com.autogen.code.web.domain.TemplateManageDomain">
         INSERT INTO public."TemplateManage" (
             "className", "packageName", "tableName", "templateContent",  "delMark", "createTime")
         VALUES (#{className},#{packageName},#{tableName},#{templateContent},#{delMark},#{createTime})
