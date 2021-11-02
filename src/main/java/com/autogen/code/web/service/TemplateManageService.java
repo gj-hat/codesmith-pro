@@ -33,6 +33,7 @@ public class TemplateManageService {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String timeFor = formatter.format(date);
         templateManageDomain.setCreateTime(timeFor);
+        templateManageDomain.setDelMark(false);
         System.out.println("---------------------");
         System.out.println(timeFor);
         System.out.println("---------------------");

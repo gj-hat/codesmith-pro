@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/templateManage")
 public class TemplateManageController {
+
     @Autowired
     private TemplateManageService templateManageService;
 
@@ -38,7 +39,7 @@ public class TemplateManageController {
     }
 
 
-    //http://localhost:8080/templateManage/insert?className=class3&packageName=pack3&tableName=table3&templateContent=temp3&templateId=3&delMark=false
+    //http://localhost:8080/templateManage/insert?className=class3&packageName=pack3&tableName=table3&templateContent=temp3&templateId=3
     @GetMapping("/insert")
     public void insert(TemplateManageDomain templateManageDomain) {
         templateManageService.insertData(templateManageDomain);
