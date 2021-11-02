@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.mapper.TemplateDiyMapperMapper">
+    <select id="findAll" resultType="com.example.springboot.domain.TemplateDiyDomainDomain">
+        select * from teststudy.public."TemplateDiy"
+    </select>
+
+    <select id="findId" resultType="com.example.springboot.domain.TemplateDiyDomainDomain">
+        select * from teststudy.public."TemplateDiy" where "templateId" = #{templateId}
+    </select>
+
+
+    <insert id="insertData" parameterType="com.example.springboot.domain.TemplateDiyDomain">
+        INSERT INTO public."TemplateDiy" (
+            "templateType", "templateContent", "packageName", "path", "extensionName", "prefixDefault", "createTime", "author")
+        VALUES (#{templateType},#{templateContent},#{packageName},#{path},#{extensionName},#{prefixDefault},#{createTime},#{author})
+    </insert>
+
+
+    <delete id="delDataId">
+        DELETE public."TemplateDiy" WHEN "templateId"=#{templateId}
+    </delete>
+    <update id="updataData">
+        UPDATE public."TemplateDiy" SET "templateType" = #{templateType}, "templateContent"=#{templateContent},"packageName"=#{packageName},  "path"=#{path},  "extensionName"=#{extensionName},  "prefixDefault"=#{prefixDefault},  "author"=#{author}   Where "templateId" = #{idIndex}
+    </update>
+
+</mapper>
+

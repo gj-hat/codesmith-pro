@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot.mapper.TemplateManageMapper">
+    <select id="findAll" resultType="com.example.springboot.domain.TemplateManageDomain">
+        select * from teststudy.public."TemplateManage"
+    </select>
+
+    <select id="findNotAll" resultType="com.example.springboot.domain.TemplateManageDomain">
+        select * from teststudy.public."TemplateManage" where "delMark" = false
+    </select>
+
+    <select id="findId" resultType="com.example.springboot.domain.TemplateManageDomain">
+        select * from teststudy.public."TemplateManage" where "templateId" = #{templateId}
+    </select>
+
+    <insert id="insertData" parameterType="com.example.springboot.domain.TemplateManageDomain">
+        INSERT INTO public."TemplateManage" (
+            "className", "packageName", "tableName", "templateContent",  "delMark", "createTime")
+        VALUES (#{className},#{packageName},#{tableName},#{templateContent},#{delMark},#{createTime})
+    </insert>
+
+    <update id="delDataId" parameterType="java.lang.Integer">
+        UPDATE public."TemplateManage" SET "delMark" = true WHERE "templateId" = #{templateId}
+    </update>
+    <update id="updataData">
+        UPDATE public."TemplateManage" SET "className" = #{className}, "packageName"=#{packageName},"tableName"=#{tableName},  "templateContent"=#{templateContent} Where "templateId" = #{templateId}
+    </update>
+
+</mapper>
+
