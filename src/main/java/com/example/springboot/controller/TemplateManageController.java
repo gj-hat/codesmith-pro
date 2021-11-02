@@ -36,8 +36,7 @@ public class TemplateManageController {
     }
 
 
-    //带时间http://localhost:8080/templateManage/insert?className=class3&packageName=pack3&tableName=table3&templateContent=temp3&templateId=3&delMark=false&createTime=2021/10/14
-    //不带时间http://localhost:8080/templateManage/insert?className=class3&packageName=pack3&tableName=table3&templateContent=temp3&templateId=3&delMark=false
+    //http://localhost:8080/templateManage/insert?className=class3&packageName=pack3&tableName=table3&templateContent=temp3&templateId=3&delMark=false
     @GetMapping("/insert")
     public void insert(TemplateManageDomain templateManageDomain) {
         templateManageService.insertData(templateManageDomain);

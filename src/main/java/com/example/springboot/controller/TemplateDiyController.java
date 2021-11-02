@@ -17,7 +17,6 @@ public class TemplateDiyController {
     @Autowired
     private TemplateDiyService templateDiyService;
 
-
     //http://localhost:8080/templateDiy/findAll
     @RequestMapping("/findAll")
     public List<TemplateDiyDomain> findAll() {
@@ -32,9 +31,7 @@ public class TemplateDiyController {
         return allService;
     }
 
-    //带时间http://localhost:8080/templateDiy/insert?templateType=templateType3&templateContent=templateContent3&packageName=packageName3&path=path3&extensionName=extensionName3&prefixDefault=prefixDefault3&author=author3&createTime=2020/10/11
-    //不带时间http://localhost:8080/templateDiy/insert?templateType=templateType3&templateContent=templateContent3&packageName=packageName3&path=path3&extensionName=extensionName3&prefixDefault=prefixDefault3&author=author3
-
+    //http://localhost:8080/templateDiy/insert?templateName=t1&templateType=templateType3&templateContent=templateContent3&packageName=packageName3&path=path3&extensionName=extensionName3&prefixDefault=prefixDefault3&author=author3
     @GetMapping("/insert")
     public void insert(TemplateDiyDomain templateDiyDomain) {
         templateDiyService.insertData(templateDiyDomain);
@@ -48,7 +45,7 @@ public class TemplateDiyController {
 
 
     // http://localhost:8080/templateDiy/update?templateId=2, templateType=templateType3&templateContent=templateContent3&packageName=packageName3&path=path3&extensionName=extensionName3&prefixDefault=prefixDefault3&author=author3
-    // 参数需要  需要修改的id   实体类的这七个属性templateType ,templateContent, packageName, path, extensionName, prefixDefault, author
+    // 参数需要  需要修改的id   实体类的这八个属性templateName,templateType ,templateContent, packageName, path, extensionName, prefixDefault, author
     @GetMapping("/update")
     public void upData(int templateId, TemplateDiyDomain templateDiyDomain) {
         templateDiyService.upDate(templateId, templateDiyDomain);

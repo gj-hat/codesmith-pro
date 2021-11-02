@@ -3,6 +3,7 @@ package com.example.springboot.domain;
 public class TemplateDiyDomain {
 
     private int templateId;
+    private String templateName;
     private String templateType;
     private String templateContent;
     private String packageName;
@@ -12,11 +13,13 @@ public class TemplateDiyDomain {
     private String createTime;
     private String author;
 
+
     public TemplateDiyDomain() {
     }
 
-    public TemplateDiyDomain(int templateId, String templateType, String templateContent, String packageName, String path, String extensionName, String prefixDefault, String createTime, String author) {
+    public TemplateDiyDomain(int templateId, String templateName, String templateType, String templateContent, String packageName, String path, String extensionName, String prefixDefault, String createTime, String author) {
         this.templateId = templateId;
+        this.templateName = templateName;
         this.templateType = templateType;
         this.templateContent = templateContent;
         this.packageName = packageName;
@@ -27,12 +30,21 @@ public class TemplateDiyDomain {
         this.author = author;
     }
 
+
     public int getTemplateId() {
         return templateId;
     }
 
     public void setTemplateId(int templateId) {
         this.templateId = templateId;
+    }
+
+    public String getTemplateName() {
+        return templateName;
+    }
+
+    public void setTemplateName(String templateName) {
+        this.templateName = templateName;
     }
 
     public String getTemplateType() {
@@ -101,8 +113,9 @@ public class TemplateDiyDomain {
 
     @Override
     public String toString() {
-        return "templateDiyDomain{" +
+        return "TemplateDiyDomain{" +
                 "templateId=" + templateId +
+                ", templateName='" + templateName + '\'' +
                 ", templateType='" + templateType + '\'' +
                 ", templateContent='" + templateContent + '\'' +
                 ", packageName='" + packageName + '\'' +

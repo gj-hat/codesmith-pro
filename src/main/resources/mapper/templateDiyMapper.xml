@@ -12,10 +12,10 @@
     </select>
 
 
-    <insert id="insertData" parameterType="com.example.springboot.domain.TemplateDiyDomain">
+    <insert id="insertData">
         INSERT INTO public."TemplateDiy" (
-            "templateType", "templateContent", "packageName", "path", "extensionName", "prefixDefault", "createTime", "author")
-        VALUES (#{templateType},#{templateContent},#{packageName},#{path},#{extensionName},#{prefixDefault},#{createTime},#{author})
+            "templateName;","templateType", "templateContent", "packageName", "path", "extensionName", "prefixDefault", "createTime", "author")
+        VALUES (#{templateName},#{templateType},#{templateContent},#{packageName},#{path},#{extensionName},#{prefixDefault},#{createTime},#{author})
     </insert>
 
 
@@ -23,7 +23,7 @@
         DELETE public."TemplateDiy" WHEN "templateId"=#{templateId}
     </delete>
     <update id="updataData">
-        UPDATE public."TemplateDiy" SET "templateType" = #{templateType}, "templateContent"=#{templateContent},"packageName"=#{packageName},  "path"=#{path},  "extensionName"=#{extensionName},  "prefixDefault"=#{prefixDefault},  "author"=#{author}   Where "templateId" = #{idIndex}
+        UPDATE public."TemplateDiy" SET "templateName" = #{templateName}, "templateType" = #{templateType}, "templateContent"=#{templateContent},"packageName"=#{packageName},  "path"=#{path},  "extensionName"=#{extensionName},  "prefixDefault"=#{prefixDefault},  "author"=#{author}   Where "templateId" = #{idIndex}
     </update>
 
 </mapper>
