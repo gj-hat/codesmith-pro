@@ -1,0 +1,13 @@
+com\autogen\code\web\domain\TemplateManageDomain.class
+com\autogen\code\AutoGenCodeApplication.class
+com\autogen\code\configuration\RestTemplateConfiguration.class
+com\autogen\code\web\service\TemplateManageService.class
+com\autogen\code\advice\GlobalExceptionAdvice.class
+com\autogen\code\web\mapper\TemplateManageMapper.class
+com\autogen\code\web\service\TemplateDiyService.class
+com\autogen\code\web\controller\TemplateManageController.class
+com\autogen\code\utils\RestTemplateUtils.class
+com\autogen\code\web\mapper\TemplateDiyMapper.class
+com\autogen\code\web\domain\TemplateDiyDomain.class
+com\autogen\code\configuration\RestTemplateConfiguration$1.class
+com\autogen\code\web\controller\TemplateDiyController.class
