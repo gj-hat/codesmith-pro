@@ -12,7 +12,7 @@ public class TemplateManageDomain {
 
     private String packageName;
 
-    private boolean delMark;
+    private boolean delMark = false;
 
     private String createTime;
 

@@ -4,6 +4,7 @@ import com.autogen.code.web.domain.TemplateManageDomain;
 import com.autogen.code.web.mapper.TemplateManageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,6 +15,7 @@ public class TemplateManageService {
 
     @Autowired
     private TemplateManageMapper templateManageMapper;
+
 
     public List<TemplateManageDomain> findAllService(){
         return templateManageMapper.findAll();
@@ -33,11 +35,6 @@ public class TemplateManageService {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
         String timeFor = formatter.format(date);
         templateManageDomain.setCreateTime(timeFor);
-        templateManageDomain.setDelMark(false);
-        System.out.println("---------------------");
-        System.out.println(timeFor);
-        System.out.println("---------------------");
-
         templateManageMapper.insertData(templateManageDomain);
     }
 
