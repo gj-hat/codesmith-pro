@@ -21,10 +21,7 @@ public class TemplateDiyController {
     @RequestMapping("/test1")
     public String test1(){
         return "我是测试";
-
     }
-
-
 
     //http://localhost:8080/templateDiy/findAllhttp://localhost:8080/templateDiy/findAll
     @RequestMapping("/findAll")
