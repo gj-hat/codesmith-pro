@@ -17,7 +17,6 @@ public class TemplateDiyController {
     @Autowired
     private TemplateDiyService templateDiyService;
 
-
     @RequestMapping("/test1")
     public String test1(){
         return "我是测试";
