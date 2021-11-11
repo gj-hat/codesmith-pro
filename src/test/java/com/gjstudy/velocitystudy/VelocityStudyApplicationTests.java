@@ -2,7 +2,9 @@ package com.gjstudy.velocitystudy;
 
 import com.gjstudy.velocitystudy.util.GenUtils;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,7 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
 
-@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = VelocityStudyApplication.class)
 class VelocityStudyApplicationTests {
 
     @Test
@@ -33,13 +36,13 @@ class VelocityStudyApplicationTests {
 
         // 模板列表
         List<String> templates = new ArrayList<String>();
-        templates.add("Controller.java.vm");
-        templates.add("Service.java.vm");
-        templates.add("Mapper.java.vm");
+        templates.add("vms/Controller.java.vm");
+        templates.add("vms/Service.java.vm");
+        templates.add("vms/Mapper.java.vm");
 
 
         // 输出流
-        File file = new File("/Users/jiaguo/Desktop");
+        File file = new File("/Users/jiaguo/Desktop/aa.zip");
         FileOutputStream outputStream = new FileOutputStream(file);
         ZipOutputStream zipOutputStream = new ZipOutputStream(outputStream);
 
