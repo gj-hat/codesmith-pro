@@ -2,12 +2,9 @@ package com.gjstudy.velocitystudy;
 
 import com.gjstudy.velocitystudy.util.GenUtils;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
 
-@RunWith(SpringRunner.class)
+
+/**
+ *
+ */
 @SpringBootTest(classes = VelocityStudyApplication.class)
 class VelocityStudyApplicationTests {
 
@@ -47,13 +47,12 @@ class VelocityStudyApplicationTests {
         ZipOutputStream zipOutputStream = new ZipOutputStream(outputStream);
 
         // 输出
-        GenUtils.generatorCode(data,templates,zipOutputStream);
+        GenUtils.generatorCode(data, templates, zipOutputStream);
 
         zipOutputStream.close();
         outputStream.close();
 
     }
-
 
 
 }
