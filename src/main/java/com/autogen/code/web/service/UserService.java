@@ -1,6 +1,6 @@
 package com.autogen.code.web.service;
 
-import com.autogen.code.web.controller.entity.User;
+import com.autogen.code.web.domain.User;
 import com.autogen.code.web.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

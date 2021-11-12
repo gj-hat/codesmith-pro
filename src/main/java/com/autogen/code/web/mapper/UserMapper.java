@@ -1,6 +1,6 @@
 package com.autogen.code.web.mapper;
 
-import com.autogen.code.web.controller.entity.User;
+import com.autogen.code.web.domain.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

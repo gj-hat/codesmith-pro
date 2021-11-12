@@ -14,26 +14,20 @@ public class VelocityTemplateTestCase {
 
     private static final Logger log = LoggerFactory.getLogger(VelocityTemplateTestCase.class);
 
-
     @BeforeEach
     void setUp() {
-
     }
 
     @AfterEach
     void tearDown() {
-
-
     }
 
     @BeforeAll
     static void beforeAll() {
-
     }
 
     @AfterAll
     static void afterAll() {
-
     }
 
 
@@ -41,15 +35,10 @@ public class VelocityTemplateTestCase {
     @DisplayName("模板测试")
     @Test
     public void test_template() throws Exception {
-
         System.out.println("starting ");
-
         //    >/dev/null
-
         //TimeUnit.SECONDS.sleep(3);
         TimeUnit.SECONDS.sleep(3);
-
-
         System.out.println("launch success.");
 
     }

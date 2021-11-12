@@ -1,4 +1,4 @@
-package com.autogen.code.web.controller.entity;
+package com.autogen.code.web.domain;
 
 /**
  * @author Ryan

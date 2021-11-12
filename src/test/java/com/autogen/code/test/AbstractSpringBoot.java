@@ -28,9 +28,7 @@ public abstract class AbstractSpringBoot {
     @Autowired
     private WebApplicationContext wac;
 
-
     private MockHttpSession session;
-
 
     @Autowired
     private MockMvc mockMvc;
@@ -40,7 +38,6 @@ public abstract class AbstractSpringBoot {
 //        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 //        session = new MockHttpSession();
     }
-
 
     /**
      * @param uri

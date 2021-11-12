@@ -4,12 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.autogen.code.web.mapper.TemplateDiyMapper">
     <select id="findAll" resultType="com.autogen.code.web.domain.TemplateDiyDomain">
-        select * from public."TemplateDiy"
+        select * from TemplateDiy
     </select>
 
     <select id="findId" resultType="com.autogen.code.web.domain.TemplateDiyDomain">
 
-        select * from public."TemplateDiy" where "templateId" = #{templateId}
+        select * from TemplateDiy where "templateId" = #{templateId}
     </select>
 
 
@@ -21,10 +21,10 @@
 
 
     <delete id="delDataId">
-        DELETE public."TemplateDiy" WHEN "templateId"=#{templateId}
+        DELETE TemplateDiy WHEN "templateId"=#{templateId}
     </delete>
     <update id="updateData">
-        UPDATE public."TemplateDiy" SET "templateName" = #{templateName}, "templateType" = #{templateType}, "templateContent"=#{templateContent},"packageName"=#{packageName},  "path"=#{path},  "extensionName"=#{extensionName},  "prefixDefault"=#{prefixDefault},  "author"=#{author}   Where "templateId" = #{idIndex}
+        UPDATE TemplateDiy SET "templateName" = #{templateName}, "templateType" = #{templateType}, "templateContent"=#{templateContent},"packageName"=#{packageName},  "path"=#{path},  "extensionName"=#{extensionName},  "prefixDefault"=#{prefixDefault},  "author"=#{author}   Where "templateId" = #{idIndex}
     </update>
 
 </mapper>

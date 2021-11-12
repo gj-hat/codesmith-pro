@@ -1,6 +1,6 @@
 package com.autogen.code.web.controller;
 
-import com.autogen.code.web.controller.entity.User;
+import com.autogen.code.web.domain.User;
 import com.autogen.code.web.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

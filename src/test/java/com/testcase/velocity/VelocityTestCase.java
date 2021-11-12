@@ -17,29 +17,21 @@ import java.util.zip.ZipOutputStream;
  */
 public class VelocityTestCase {
 
-
     @BeforeEach
     void setUp() {
-
     }
 
     @AfterEach
     void tearDown() {
-
     }
 
     @BeforeAll
     static void beforeAll() {
-
     }
 
     @AfterAll
     static void afterAll() {
-
     }
-
-
-
 
     @Test
     public void test1() throws Exception {

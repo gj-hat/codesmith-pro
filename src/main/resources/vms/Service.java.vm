@@ -1,0 +1,34 @@
+##package com.gjstudy.velocitystudy.web.service;
+package ${package}.web.service;
+
+
+import ${package}.web.domain.User;
+import ${package}.web.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ${className}Service} {
+
+
+    @Autowired
+    private ${className}Mapper ${genUtils.bigToSmall(${className})}Mapper;
+
+    public List<${className}> list() {
+        return ${genUtils.bigToSmall(${className})}Mapper.list();
+    }
+
+    public void save() {
+        ${genUtils.bigToSmall(${className})}Mapper.save()};
+    }
+
+    public void update(${className} ${genUtils.bigToSmall(${className})}) {
+        ${genUtils.bigToSmall(${className})}Mapper.update(${genUtils.bigToSmall(${className})})};
+    }
+
+    public void del(int[] ids) {
+        ${genUtils.bigToSmall(${className})}Mapper.del(ids)};
+    }
+}
