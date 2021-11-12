@@ -1,7 +1,7 @@
-package com.gjstudy.velocitystudy.web.service;
+package com.autogen.code.web.service;
 
-import com.gjstudy.velocitystudy.web.domain.User;
-import com.gjstudy.velocitystudy.web.mapper.UserMapper;
+import com.autogen.code.web.controller.entity.User;
+import com.autogen.code.web.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

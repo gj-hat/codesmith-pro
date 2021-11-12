@@ -1,12 +1,17 @@
-package com.gjstudy.velocitystudy.web.mapper;
+package com.autogen.code.web.mapper;
 
-import com.gjstudy.velocitystudy.web.domain.User;
+import com.autogen.code.web.controller.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface UserMapper {
+
+    /**
+     *
+     * @return
+     */
     List<User> list();
 
     void save();

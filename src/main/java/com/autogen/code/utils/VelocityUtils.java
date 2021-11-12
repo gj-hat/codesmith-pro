@@ -1,4 +1,4 @@
-package com.gjstudy.velocitystudy.util;
+package com.autogen.code.utils;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -15,13 +15,15 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * @author ：JiaGuo
- * @date ：Created in 2021/11/11 13:50
- * @description：生成代码工具类
- * @modified By：
- * @version: $
+ *
+ *
+ * @author Ryan
+ * @email liuwei412552703@163.com
+ * @date 2021/11/12 10:56
  */
-public class GenUtils {
+public class VelocityUtils {
+
+    private VelocityUtils(){}
 
     /**
      * 生成java代码  打包输出
@@ -102,6 +104,7 @@ public class GenUtils {
 
         return null;
     }
+
 
 
 }

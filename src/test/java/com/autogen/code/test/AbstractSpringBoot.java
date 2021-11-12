@@ -1,9 +1,10 @@
-package com.gjstudy.velocitystudy;
+package com.autogen.code.test;
 
 import com.autogen.code.AutoGenCodeApplication;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -11,17 +12,15 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.web.context.WebApplicationContext;
-
-import java.net.URI;
 
 /**
  * @author Ryan
  * @email liuwei412552703@163.com
  * @date 2021/11/12 10:02
  */
-
+@AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AutoGenCodeApplication.class)
 public abstract class AbstractSpringBoot {
@@ -33,12 +32,13 @@ public abstract class AbstractSpringBoot {
     private MockHttpSession session;
 
 
+    @Autowired
     private MockMvc mockMvc;
 
-    @BeforeEach
+    @BeforeAll
     public void setUp() throws Exception {
-        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
-        session = new MockHttpSession();
+//        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+//        session = new MockHttpSession();
     }
 
 
@@ -53,12 +53,24 @@ public abstract class AbstractSpringBoot {
 
 
     /**
-     * @param uri
-     * @param uriVars
-     * @throws Exception
+     * @param requestBuilder
      * @return
+     * @throws Exception
      */
-    public ResultActions get(URI uri, Object... uriVars) throws Exception {
-        return mockMvc.perform(builerGet(uri.getPath(), uriVars));
+    public ResultActions perform(RequestBuilder requestBuilder) throws Exception {
+        return mockMvc.perform(requestBuilder);
+    }
+
+    /**
+     *
+     * @param requestBuilder
+     * @return
+     * @throws Exception
+     */
+    public ResultActions performAndExpect(RequestBuilder requestBuilder) throws Exception {
+        return mockMvc.perform(requestBuilder)
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        // junit5
     }
 }

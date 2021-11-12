@@ -1,7 +1,7 @@
-package com.gjstudy.velocitystudy;
+package com.testcase.velocity;
 
-import com.gjstudy.velocitystudy.util.GenUtils;
-import org.junit.jupiter.api.Test;
+import com.autogen.code.utils.GenUtils;
+import org.junit.jupiter.api.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,12 +15,31 @@ import java.util.zip.ZipOutputStream;
 /**
  *
  */
-class VelocityStudyApplicationTests {
+public class VelocityTestCase {
 
-    @Test
-    void contextLoads() {
-        System.out.println("swdawdaw");
+
+    @BeforeEach
+    void setUp() {
+
     }
+
+    @AfterEach
+    void tearDown() {
+
+    }
+
+    @BeforeAll
+    static void beforeAll() {
+
+    }
+
+    @AfterAll
+    static void afterAll() {
+
+    }
+
+
+
 
     @Test
     public void test1() throws Exception {

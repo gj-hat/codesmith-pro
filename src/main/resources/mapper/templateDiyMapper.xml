@@ -14,7 +14,7 @@
 
 
     <insert id="insertData">
-        INSERT INTO public."TemplateDiy" (
+        INSERT INTO  TemplateDiy (
             "templateName;","templateType", "templateContent", "packageName", "path", "extensionName", "prefixDefault", "createTime", "author")
         VALUES (#{templateName},#{templateType},#{templateContent},#{packageName},#{path},#{extensionName},#{prefixDefault},#{createTime},#{author})
     </insert>
