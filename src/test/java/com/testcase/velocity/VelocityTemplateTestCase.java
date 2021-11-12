@@ -46,7 +46,9 @@ public class VelocityTemplateTestCase {
 
         //    >/dev/null
 
+        //TimeUnit.SECONDS.sleep(3);
         TimeUnit.SECONDS.sleep(3);
+
 
         System.out.println("launch success.");
 
