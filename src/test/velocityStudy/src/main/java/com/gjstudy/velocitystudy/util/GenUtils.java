@@ -25,9 +25,10 @@ public class GenUtils {
 
     /**
      * 生成java代码  打包输出
-     * @param data           传入的数据
-     * @param templates      模板库
-     * @param zipOutputStream      zip输出流
+     *
+     * @param data            传入的数据
+     * @param templates       模板库
+     * @param zipOutputStream zip输出流
      */
     public static void generatorCode(Map<String, Object> data, List<String> templates, ZipOutputStream zipOutputStream) throws Exception {
 
@@ -39,6 +40,8 @@ public class GenUtils {
         // 3. 创建Velocity容器    并存入容器中
         VelocityContext velocityContext = new VelocityContext(data);
 
+        // genUtils  用于调用字符串转化方法
+        velocityContext.put("genUtils", new GenUtils());
 
 
         // 4. 加载Velocity模版文件  遍历每一个模板
@@ -58,24 +61,18 @@ public class GenUtils {
             IOUtils.write(sw.toString(), zipOutputStream, "UTF-8");
             // 6. 释放资源
             IOUtils.closeQuietly(sw);
-
         }
-
-
     }
-
-
-
-
 
 
     /**
      * 生成路径名
      * 根据模板名称 类名 包名拼接成一个完整的文件名
-     * @param template      模板名称
-     * @param className     实体类的类名
-     * @param packageName   包名
-     * @return  /main/java/com/XXXX/controller/UserController.java
+     *
+     * @param template    模板名称
+     * @param className   实体类的类名
+     * @param packageName 包名
+     * @return /main/java/com/XXXX/controller/UserController.java
      */
     public static String getFileName(String template, String className, String packageName) {
         // 包名 main/java   因为main/java是通用的
@@ -84,7 +81,7 @@ public class GenUtils {
         // 如果传入的包名不为空  则把包名中的.全部换成/
         // 例如com.gj.study -> main/java/com/gj/study/
         if (StringUtils.isNoneEmpty(packageName)) {
-            packagePath += packageName.replace(".", File.separator)+File.separator;
+            packagePath += packageName.replace(".", File.separator) + File.separator;
         }
 
         // 控制层
@@ -106,6 +103,12 @@ public class GenUtils {
         return null;
     }
 
+    // 首字母大写转小写
+    public static String bigToSmall(String st) {
+        char[] chars = st.toCharArray();
+        chars[0] += 32;
+        return String.valueOf(chars);
+    }
 
 
 }

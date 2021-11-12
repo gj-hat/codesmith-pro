@@ -14,21 +14,21 @@ public class ${className}Service} {
 
 
     @Autowired
-    private ${className}Mapper ${classname}Mapper;
+    private ${className}Mapper ${genUtils.bigToSmall(${className})}Mapper;
 
     public List<${className}> list() {
-        return ${classname}Mapper.list();
+        return ${genUtils.bigToSmall(${className})}Mapper.list();
     }
 
     public void save() {
-        ${classname}Mapper.save()};
+        ${genUtils.bigToSmall(${className})}Mapper.save()};
     }
 
-    public void update(${className} ${classname}) {
-        ${classname}Mapper.update(${classname})};
+    public void update(${className} ${genUtils.bigToSmall(${className})}) {
+        ${genUtils.bigToSmall(${className})}Mapper.update(${genUtils.bigToSmall(${className})})};
     }
 
     public void del(int[] ids) {
-        ${classname}Mapper.del(ids)};
+        ${genUtils.bigToSmall(${className})}Mapper.del(ids)};
     }
 }

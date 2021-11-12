@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/${classname}")
+@RequestMapping("/${genUtils.bigToSmall(${className})}")
 public class ${className}Controller {
 
     @Autowired
-    private ${className}Service ${classname}Service;
+    private ${className}Service ${genUtils.bigToSmall(${className})}Service;
 
 
     @RequestMapping("/list")
     public List<${className}> list() {
-        return ${classname}.list();
+        return ${genUtils.bigToSmall(${className})}.list();
     }
 
     @RequestMapping("/save")
-    public void save(@RequestBody ${className} ${classname}) {
-            ${classname}Service.save();
+    public void save(@RequestBody ${className} ${genUtils.bigToSmall(${className})}) {
+            ${genUtils.bigToSmall(${className})}Service.save();
     }
 
     @RequestMapping("/update")
-    public void update(@RequestBody ${className} ${classname}) {
-            ${classname}Service.update(${classname});
+    public void update(@RequestBody ${className} ${genUtils.bigToSmall(${className})}) {
+            ${genUtils.bigToSmall(${className})}Service.update(${genUtils.bigToSmall(${className})});
     }
 
     @RequestMapping("/del")
     public void del(@RequestBody int[] ids) {
-            ${classname}Service.del(ids);
+            ${genUtils.bigToSmall(${className})}Service.del(ids);
     }
 
 

@@ -11,7 +11,7 @@ public interface ${className}Mapper} {
 
     void save();
 
-    void update(${className} ${classname});
+    void update(${className} ${genUtils.bigToSmall(${className})});
 
     void del(int[] ids);
 }

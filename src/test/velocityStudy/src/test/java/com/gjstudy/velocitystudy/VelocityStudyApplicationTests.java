@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipOutputStream;
 
+//@SpringBootTest
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = VelocityStudyApplication.class)
 class VelocityStudyApplicationTests {
@@ -32,7 +33,7 @@ class VelocityStudyApplicationTests {
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("package", "com.gj.study");
         data.put("className", "User");
-        data.put("classname", "user");
+
 
         // 模板列表
         List<String> templates = new ArrayList<String>();
