@@ -2,7 +2,6 @@ package com.gjstudy.velocitystudy;
 
 import com.gjstudy.velocitystudy.util.GenUtils;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,7 +15,6 @@ import java.util.zip.ZipOutputStream;
 /**
  *
  */
-@SpringBootTest(classes = VelocityStudyApplication.class)
 class VelocityStudyApplicationTests {
 
     @Test
@@ -26,9 +24,6 @@ class VelocityStudyApplicationTests {
 
     @Test
     public void test1() throws Exception {
-
-
-        // 数据
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("package", "com.gj.study");
         data.put("className", "User");
@@ -42,7 +37,7 @@ class VelocityStudyApplicationTests {
 
 
         // 输出流
-        File file = new File("/Users/jiaguo/Desktop/aa.zip");
+        File file = new File("aa.zip");
         FileOutputStream outputStream = new FileOutputStream(file);
         ZipOutputStream zipOutputStream = new ZipOutputStream(outputStream);
 
