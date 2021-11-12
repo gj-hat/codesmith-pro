@@ -20,6 +20,7 @@
 3. mybatis
 4. spring
 5. postgresSql
+6. junit 5
 
 
 ## 数据表
@@ -54,4 +55,15 @@
 | 默认前缀                | prefixDefault   | char(255) |                |
 | 创建时间                | createTime      | char(255) |                |
 | 创建人                  | author          | char(255) |                |
+
+
+
+## todo
+
+2021年11月19日 前完成
+1. 对接 SpringBoot 官方，定期获取 依赖及相关信息；为生成项目提供支撑；
+2. 模板管理、SpringBoot项目依赖信息管理、全局参数配置功能；
+3. 生成项目接口、生成代码接口；
+
+
 
