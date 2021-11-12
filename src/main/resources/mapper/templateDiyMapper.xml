@@ -4,27 +4,39 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.autogen.code.web.mapper.TemplateDiyMapper">
     <select id="findAll" resultType="com.autogen.code.web.domain.TemplateDiyDomain">
-        select * from TemplateDiy
+        select *
+        from TemplateDiy
     </select>
 
     <select id="findId" resultType="com.autogen.code.web.domain.TemplateDiyDomain">
 
-        select * from TemplateDiy where "templateId" = #{templateId}
+        select *
+        from TemplateDiy
+        where "templateId" = #{templateId}
     </select>
 
 
     <insert id="insertData">
-        INSERT INTO  TemplateDiy (
-            "templateName;","templateType", "templateContent", "packageName", "path", "extensionName", "prefixDefault", "createTime", "author")
-        VALUES (#{templateName},#{templateType},#{templateContent},#{packageName},#{path},#{extensionName},#{prefixDefault},#{createTime},#{author})
+        INSERT INTO TemplateDiy (templateName, templateType, templateContent, packageName, path, extensionName, prefixDefault, createTime, author)
+        VALUES (#{templateName}, #{templateType}, #{templateContent}, #{packageName}, #{path}, #{extensionName}, #{prefixDefault}, #{createTime},
+                #{author})
     </insert>
 
 
     <delete id="delDataId">
-        DELETE TemplateDiy WHEN "templateId"=#{templateId}
+        DELETE TemplateDiy WHEN templateId=#{templateId}
     </delete>
     <update id="updateData">
-        UPDATE TemplateDiy SET "templateName" = #{templateName}, "templateType" = #{templateType}, "templateContent"=#{templateContent},"packageName"=#{packageName},  "path"=#{path},  "extensionName"=#{extensionName},  "prefixDefault"=#{prefixDefault},  "author"=#{author}   Where "templateId" = #{idIndex}
+        UPDATE TemplateDiy
+        SET templateName   = #{templateName},
+            templateType   = #{templateType},
+            templateContent=#{templateContent},
+            packageName=#{packageName},
+            path=#{path},
+            extensionName=#{extensionName},
+            prefixDefault=#{prefixDefault},
+            author=#{author}
+        Where templateId = #{idIndex}
     </update>
 
 </mapper>

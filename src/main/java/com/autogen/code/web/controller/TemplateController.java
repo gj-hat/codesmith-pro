@@ -1,11 +1,13 @@
 package com.autogen.code.web.controller;
 
+import com.autogen.code.web.controller.dto.TemplateDto;
 import com.autogen.code.web.domain.User;
 import com.autogen.code.web.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,9 +16,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-public class UserController implements InitializingBean {
+public class TemplateController implements InitializingBean {
 
-    private static final Logger log = LoggerFactory.getLogger(UserController.class);
+    private static final Logger log = LoggerFactory.getLogger(TemplateController.class);
 
     @Autowired
     private UserService userService;
@@ -33,33 +35,18 @@ public class UserController implements InitializingBean {
 
     }
 
-    @RequestMapping("/list")
-    public List<User> list() {
+    /**
+     * 分页搜索模板列表
+     *
+     * @param reqPage
+     * @return
+     */
+    @PostMapping("/list")
+    public List<User> list(@RequestBody ReqPage<TemplateDto> reqPage) {
+
+
         return userService.list(reqPage);
     }
-    @RequestMapping("/save")
-    public void save(@RequestBody User user) {
-        userService.save();
-    }
-    @RequestMapping("/update")
-    public void update(@RequestBody User user){
-        userService.update(user);
-    }
-
-    @RequestMapping("/del")
-    public void del(@RequestBody int[] ids) {
-        userService.del(ids);
-    }
-
-
-
-
-
-
-
-
-
-
 
 
 }
