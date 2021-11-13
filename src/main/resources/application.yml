@@ -1,24 +1,39 @@
+
+# 多数据源
 spring:
-  mvc:
-    static-path-pattern: /**
-
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://10.254.130.27:5433/postgres
-    hikari:
-      driver-class-name: org.postgresql.Driver
-      jdbc-url: jdbc:postgresql://10.254.130.27:5433/postgres?currentSchema=autogencode
-      username: gencode_dev
-      password: Gencode_Dev
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        master:
+          url: jdbc:postgresql://127.0.0.1:5432/postgres?currentSchema=public
+          username: postgres
+          password: 321321
+          driver-class-name: org.postgresql.Driver
+        slave_1:
+          url: jdbc:postgresql://10.254.130.27:5433/postgres?currentSchema=public
+          username: gencode_dev
+          password: Gencode_Dev
+          driver-class-name: org.postgresql.Driver
 
 
 
 
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
 
 
-logging:
-  level:
-    root: debug
-    com.autogen.code: info
+
+mybatis-plus:
+  configuration:
+    # 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN（下划线命名） 到经典 Java 属性名 aColumn（驼峰命名） 的类似映射
+    #map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+
+
+#logging:
+#  level:
+#    root: debug
+#    com.autogen.code: info

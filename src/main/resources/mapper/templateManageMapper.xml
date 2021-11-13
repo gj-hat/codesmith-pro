@@ -3,30 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.autogen.code.web.mapper.TemplateManageMapper">
-    <select id="findAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">
-        select * from TemplateManage
-    </select>
+<!--    <select id="findAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">-->
+<!--        select * from TemplateManage-->
+<!--    </select>-->
 
-    <select id="findNotAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">
-        select * from TemplateManage where "delMark" = false
-    </select>
+<!--    <select id="findNotAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">-->
+<!--        select * from TemplateManage where "delMark" = false-->
+<!--    </select>-->
 
-    <select id="findId" resultType="com.autogen.code.web.domain.TemplateManageDomain">
-        select * from TemplateManage where "templateId" = #{templateId}
-    </select>
+<!--    <select id="findId" resultType="com.autogen.code.web.domain.TemplateManageDomain">-->
+<!--        select * from TemplateManage where "templateId" = #{templateId}-->
+<!--    </select>-->
 
-    <insert id="insertData">
-        INSERT INTO TemplateManage (
-            "className", "packageName", "tableName", "templateContent",  "delMark", "createTime")
-        VALUES (#{className},#{packageName},#{tableName},#{templateContent},#{delMark},#{createTime})
-    </insert>
+<!--    <insert id="insertData">-->
+<!--        INSERT INTO TemplateManage (-->
+<!--            "className", "packageName", "tableName", "templateContent",  "delMark", "createTime")-->
+<!--        VALUES (#{className},#{packageName},#{tableName},#{templateContent},#{delMark},#{createTime})-->
+<!--    </insert>-->
 
-    <update id="delDataId">
-        UPDATE TemplateManage SET "delMark" = true WHERE "templateId" = #{templateId}
-    </update>
-    <update id="updataData">
-        UPDATE TemplateManage SET "className" = #{className}, "packageName"=#{packageName},"tableName"=#{tableName},  "templateContent"=#{templateContent} Where "templateId" = #{templateId}
-    </update>
+<!--    <update id="delDataId">-->
+<!--        UPDATE TemplateManage SET "delMark" = true WHERE "templateId" = #{templateId}-->
+<!--    </update>-->
+<!--    <update id="updataData">-->
+<!--        UPDATE TemplateManage SET "className" = #{className}, "packageName"=#{packageName},"tableName"=#{tableName},  "templateContent"=#{templateContent} Where "templateId" = #{templateId}-->
+<!--    </update>-->
 
 </mapper>
 

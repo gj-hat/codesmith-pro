@@ -1,7 +1,5 @@
 package com.autogen.code.web.controller;
 
-import com.autogen.code.web.domain.User;
-import com.autogen.code.web.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -19,7 +17,7 @@ public class UserController implements InitializingBean {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    private UserService userService;
+//    private UserService userService;
 
 
     @Override
@@ -32,24 +30,24 @@ public class UserController implements InitializingBean {
 
 
     }
-
-    @RequestMapping("/list")
-    public List<User> list() {
-        return userService.list(reqPage);
-    }
-    @RequestMapping("/save")
-    public void save(@RequestBody User user) {
-        userService.save();
-    }
-    @RequestMapping("/update")
-    public void update(@RequestBody User user){
-        userService.update(user);
-    }
-
-    @RequestMapping("/del")
-    public void del(@RequestBody int[] ids) {
-        userService.del(ids);
-    }
+//
+//    @RequestMapping("/list")
+//    public List<User> list() {
+//        return userService.list(reqPage);
+//    }
+//    @RequestMapping("/save")
+//    public void save(@RequestBody User user) {
+//        userService.save();
+//    }
+//    @RequestMapping("/update")
+//    public void update(@RequestBody User user){
+//        userService.update(user);
+//    }
+//
+//    @RequestMapping("/del")
+//    public void del(@RequestBody int[] ids) {
+//        userService.del(ids);
+//    }
 
 
 

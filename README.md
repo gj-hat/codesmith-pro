@@ -17,7 +17,7 @@
 
 1. springBoot
 2. Maven
-3. mybatis
+3. mybatis-Plus
 4. spring
 5. postgresSql
 6. junit 5

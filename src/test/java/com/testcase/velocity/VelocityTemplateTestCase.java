@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class VelocityTemplateTestCase {
 
-    private static final Logger log = LoggerFactory.getLogger(VelocityTemplateTestCase.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(VelocityTemplateTestCase.class);
 
     @BeforeEach
     void setUp() {
@@ -36,6 +36,11 @@ public class VelocityTemplateTestCase {
     @Test
     public void test_template() throws Exception {
         System.out.println("starting ");
+        LOGGER.debug("start debug...");
+        LOGGER.info("start info ...");
+        LOGGER.warn("start warn ...");
+        LOGGER.error("start error ...");
+//        LOGGER.fatal("start fatal ...");
         //    >/dev/null
         //TimeUnit.SECONDS.sleep(3);
         TimeUnit.SECONDS.sleep(3);

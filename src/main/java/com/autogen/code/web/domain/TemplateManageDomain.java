@@ -1,42 +1,39 @@
 package com.autogen.code.web.domain;
 
-public class TemplateManageDomain {
+import com.baomidou.mybatisplus.annotation.TableName;
 
-    private int templateId;
+/**
+ * templateManage实体类
+ *
+ *
+ */
+@TableName("\"TemplateManage\"")
+public class TemplateManageDomain extends BaseTemplateDomain {
 
     private String tableName;
 
-    private String templateContent;
-
     private String className;
 
-    private String packageName;
-
     private boolean delMark = false;
-
-    private String createTime;
 
 
     public TemplateManageDomain() {
     }
 
-    public TemplateManageDomain(int templateId, String tableName, String templateContent, String className, String packageName, boolean delMark, String createTime) {
-        this.templateId = templateId;
+
+    public TemplateManageDomain(int templateId, String templateContent, String packageName, String createTime, String tableName, String className, boolean delMark) {
+        super(templateId, templateContent, packageName, createTime);
         this.tableName = tableName;
-        this.templateContent = templateContent;
         this.className = className;
-        this.packageName = packageName;
         this.delMark = delMark;
-        this.createTime = createTime;
     }
+
+
 
     public int getTemplateId() {
-        return templateId;
+        return super.getTemplateId();
     }
 
-    public void setTemplateId(int templateId) {
-        this.templateId = templateId;
-    }
 
     public String getTableName() {
         return tableName;
@@ -46,13 +43,24 @@ public class TemplateManageDomain {
         this.tableName = tableName;
     }
 
+
     public String getTemplateContent() {
-        return templateContent;
+        return super.getTemplateContent();
     }
 
     public void setTemplateContent(String templateContent) {
-        this.templateContent = templateContent;
+        super.setTemplateContent(templateContent);
     }
+
+    public String getPackageName() {
+        return super.getPackageName();
+    }
+
+
+    public void setPackageName(String packageName) {
+        super.setPackageName(packageName);
+    }
+
 
     public String getClassName() {
         return className;
@@ -62,13 +70,6 @@ public class TemplateManageDomain {
         this.className = className;
     }
 
-    public String getPackageName() {
-        return packageName;
-    }
-
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
-    }
 
     public boolean isDelMark() {
         return delMark;
@@ -79,13 +80,8 @@ public class TemplateManageDomain {
     }
 
     public String getCreateTime() {
-        return createTime;
+        return super.getCreateTime();
     }
-
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
-
 
 
 

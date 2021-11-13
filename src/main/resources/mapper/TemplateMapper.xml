@@ -6,7 +6,7 @@
 <mapper namespace="com.autogen.code.web.mapper.TemplateMapper">
 
 
-    <select id="queryTemplateList" resultType="com.autogen.code.web.controller.vo.TemplateVo">
+    <select id="queryTemplateList" resultType="com.autogen.code.web.domain.vo.BaseTemplateVo">
         select a.*** from tableA a left join tableB b on b.id = a.id;
     </select>
 </mapper>

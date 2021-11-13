@@ -1,43 +1,44 @@
 package com.autogen.code.web.domain;
 
-public class TemplateDiyDomain {
 
-    private int templateId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+/**
+ * templateDiy实体类
+ *
+ *
+ */
+
+@TableName("\"TemplateDiy\"")
+public class TemplateDiyDomain extends BaseTemplateDomain {
+
     private String templateName;
     private String templateType;
-    private String templateContent;
-    private String packageName;
     private String path;
     private String extensionName;
     private String prefixDefault;
-    private String createTime;
     private String author;
 
 
     public TemplateDiyDomain() {
     }
 
-    public TemplateDiyDomain(int templateId, String templateName, String templateType, String templateContent, String packageName, String path, String extensionName, String prefixDefault, String createTime, String author) {
-        this.templateId = templateId;
+
+    public TemplateDiyDomain(int templateId, String templateContent, String packageName, String createTime, String templateName, String templateType, String path, String extensionName, String prefixDefault, String author) {
+        super(templateId, templateContent, packageName, createTime);
         this.templateName = templateName;
         this.templateType = templateType;
-        this.templateContent = templateContent;
-        this.packageName = packageName;
         this.path = path;
         this.extensionName = extensionName;
         this.prefixDefault = prefixDefault;
-        this.createTime = createTime;
         this.author = author;
     }
 
 
     public int getTemplateId() {
-        return templateId;
+        return super.getTemplateId();
     }
 
-    public void setTemplateId(int templateId) {
-        this.templateId = templateId;
-    }
 
     public String getTemplateName() {
         return templateName;
@@ -56,19 +57,19 @@ public class TemplateDiyDomain {
     }
 
     public String getTemplateContent() {
-        return templateContent;
+        return super.getTemplateContent();
     }
 
     public void setTemplateContent(String templateContent) {
-        this.templateContent = templateContent;
+        super.setTemplateContent(templateContent);
     }
 
     public String getPackageName() {
-        return packageName;
+        return super.getPackageName();
     }
 
     public void setPackageName(String packageName) {
-        this.packageName = packageName;
+        super.setPackageName(packageName);
     }
 
     public String getPath() {
@@ -96,12 +97,9 @@ public class TemplateDiyDomain {
     }
 
     public String getCreateTime() {
-        return createTime;
+        return super.getCreateTime();
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
-    }
 
     public String getAuthor() {
         return author;
@@ -111,19 +109,4 @@ public class TemplateDiyDomain {
         this.author = author;
     }
 
-    @Override
-    public String toString() {
-        return "TemplateDiyDomain{" +
-                "templateId=" + templateId +
-                ", templateName='" + templateName + '\'' +
-                ", templateType='" + templateType + '\'' +
-                ", templateContent='" + templateContent + '\'' +
-                ", packageName='" + packageName + '\'' +
-                ", path='" + path + '\'' +
-                ", extensionName='" + extensionName + '\'' +
-                ", prefixDefault='" + prefixDefault + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", author='" + author + '\'' +
-                '}';
-    }
 }

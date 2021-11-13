@@ -1,52 +1,23 @@
 package com.autogen.code.web.service;
 
 import com.autogen.code.web.domain.TemplateDiyDomain;
-import com.autogen.code.web.mapper.TemplateDiyMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.autogen.code.web.domain.vo.BaseTemplateVo;
+import com.autogen.code.web.domain.vo.TemplateDiyVo;
+import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
+/**
+ * @author ：JiaGuo
+ * @date ：Created in 2021/11/13 14:52
+ * @description：interface TemplateDiy
+ * @modified By：
+ * @version: 1.0
+ */
 @Service
-public class TemplateDiyService {
-
-    @Autowired
-    private TemplateDiyMapper templateDiyMapper;
-
-    public List<TemplateDiyDomain> findAllService() {
-        return templateDiyMapper.findAll();
-    }
-
-    public List<TemplateDiyDomain> findId(int templateId) {
-        return templateDiyMapper.findId(templateId);
-    }
+public interface TemplateDiyService extends IService<TemplateDiyDomain> {
+    TemplateDiyVo findPaging(int pageNum);
 
 
-
-    public void insertData(TemplateDiyDomain templateDiyDomain) {
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        String timeFor = formatter.format(date);
-        templateDiyDomain.setCreateTime(timeFor);
-        System.out.println("---------------------");
-        System.out.println(timeFor);
-        System.out.println("---------------------");
-
-        templateDiyMapper.insertData(templateDiyDomain);
-    }
-
-
-    public void delDataId(int templateId) {
-        templateDiyMapper.delDataId(templateId);
-    }
-
-    public void upDate(int inIndex, TemplateDiyDomain templateDiyDomain) {
-
-        templateDiyMapper.updateData(inIndex, templateDiyDomain);
-    }
 
 
 }
-

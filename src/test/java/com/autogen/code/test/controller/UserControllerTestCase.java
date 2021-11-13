@@ -14,10 +14,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
  */
 public class UserControllerTestCase extends AbstractSpringBoot {
 
-
-
-
-
     @Test
     public void test_student_query_list() throws Exception {
 
