@@ -18,7 +18,7 @@ public class AnalysisSQL {
 
     /**
      *
-     * @param url     数据库url
+     * @param url          数据库url
      * @param driver       数据库驱动名
      * @param username     数据库用户名
      * @param password     数据库密码

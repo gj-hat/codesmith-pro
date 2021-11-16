@@ -2,6 +2,7 @@ package com.testSpringBoot.Io;
 
 import com.autogen.code.AutoGenCodeApplication;
 import com.autogen.code.utils.RestTemplateUtils;
+import com.autogen.code.web.domain.DependenciesDomain;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +48,17 @@ public class testDownData {
 
     @Test
     public void test2() {
-        ResponseEntity<String> stringResponseEntity = restTemplateUtils.get("https://start.spring.io/metadata/client", String.class);
-        String s = stringResponseEntity.getBody();
-//        HttpHeaders s = stringResponseEntity.getHeaders();
+//        ResponseEntity<DependenciesDomain> stringResponseEntity1 = restTemplate.postForEntity("https://start.spring.io", "dependencies", DependenciesDomain.class);
+//        ResponseEntity<String> stringResponseEntity = restTemplateUtils.get("https://start.spring.io", String.class);
+//        String s = stringResponseEntity.getBody();
+//        System.out.println("s = " + s);
+
+
+        ResponseEntity<DependenciesDomain> stringResponseEntity = restTemplateUtils.post("https://start.spring.io","dependencies" ,DependenciesDomain.class);
+        DependenciesDomain s = stringResponseEntity.getBody();
         System.out.println("s = " + s);
+
+
 
     }
 
