@@ -1,7 +1,6 @@
 package com.autogen.code.web.service.Impl;
 
-import com.autogen.code.globalVariable.GlobalVariable;
-import com.autogen.code.web.domain.vo.BaseTemplateVo;
+import com.autogen.code.Constants;
 import com.autogen.code.web.domain.TemplateManageDomain;
 import com.autogen.code.web.domain.vo.TemplateManageVo;
 import com.autogen.code.web.mapper.TemplateManageMapper;
@@ -13,8 +12,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author     ：JiaGuo
@@ -34,7 +31,7 @@ public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper
     @Override
     public TemplateManageVo findAllPaging(int pageNum) {
         TemplateManageVo templateVo = new TemplateManageVo();
-        IPage<TemplateManageDomain> page = new Page<>(pageNum, GlobalVariable.RECORD);
+        IPage<TemplateManageDomain> page = new Page<>(pageNum, Constants.RECORD);
         templateManageMapper.selectPage(page, null);
         templateVo.setCurrent(pageNum);
         templateVo.setSize(2);
@@ -51,7 +48,7 @@ public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper
     @Override
     public TemplateManageVo findNotAllPaging(int pageNum) {
         TemplateManageVo templateVo = new TemplateManageVo();
-        IPage<TemplateManageDomain> page = new Page<>(pageNum, GlobalVariable.RECORD);
+        IPage<TemplateManageDomain> page = new Page<>(pageNum, Constants.RECORD);
         QueryWrapper<TemplateManageDomain> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("del_mark", false);
         templateManageMapper.selectPage(page, queryWrapper);

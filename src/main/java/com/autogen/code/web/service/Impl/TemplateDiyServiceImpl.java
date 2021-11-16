@@ -1,13 +1,9 @@
 package com.autogen.code.web.service.Impl;
 
-import com.autogen.code.globalVariable.GlobalVariable;
+import com.autogen.code.Constants;
 import com.autogen.code.web.domain.TemplateDiyDomain;
-import com.autogen.code.web.domain.TemplateManageDomain;
-import com.autogen.code.web.domain.vo.BaseTemplateVo;
 import com.autogen.code.web.domain.vo.TemplateDiyVo;
-import com.autogen.code.web.domain.vo.TemplateManageVo;
 import com.autogen.code.web.mapper.TemplateDiyMapper;
-import com.autogen.code.web.mapper.TemplateManageMapper;
 import com.autogen.code.web.service.TemplateDiyService;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -33,7 +29,7 @@ public class TemplateDiyServiceImpl extends ServiceImpl<TemplateDiyMapper, Templ
     @Override
     public TemplateDiyVo findPaging(int pageNum) {
         TemplateDiyVo templateDiyVo = new TemplateDiyVo();
-        IPage<TemplateDiyDomain> page = new Page<>(pageNum, GlobalVariable.RECORD);
+        IPage<TemplateDiyDomain> page = new Page<>(pageNum, Constants.RECORD);
         templateDiyMapper.selectPage(page, null);
         templateDiyVo.setCurrent(pageNum);
         templateDiyVo.setSize(2);

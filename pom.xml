@@ -15,11 +15,9 @@
     <description>Auto code generation platform</description>
 
     <properties>
-        <java.version>8</java.version>
 
-
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
         <velocity.version>2.3</velocity.version>
-
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -60,6 +58,7 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -128,7 +127,11 @@
             <version>3.2.1</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.78</version>
+        </dependency>
 
     </dependencies>
 

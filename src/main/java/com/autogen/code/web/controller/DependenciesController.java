@@ -1,14 +1,14 @@
 package com.autogen.code.web.controller;
 
 
+import com.autogen.code.web.controller.dto.ReqPageParam;
 import com.autogen.code.web.domain.DependenciesDomain;
-import com.autogen.code.web.domain.TemplateDiyDomain;
 import com.autogen.code.web.domain.vo.DependenciesVo;
-import com.autogen.code.web.domain.vo.TemplateDiyVo;
+import com.autogen.code.web.mapper.mapper.SpDependencyEntity;
 import com.autogen.code.web.service.Impl.DependenciesServiceImpl;
-import com.autogen.code.web.service.Impl.TemplateDiyServiceImpl;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,16 +22,17 @@ public class DependenciesController {
 
     /**
      * 分页查找
-     * @param pageNum   页数
+     *
+     * @param reqPageParam 页数
      * @return
      */
     @RequestMapping("/findAll")
-    public DependenciesVo findAll(int pageNum) {
-        return dependenciesService.findPaging(pageNum);
+    public DependenciesVo findAll(@RequestBody ReqPageParam<SpDependencyEntity> reqPageParam) {
+        return dependenciesService.findByPaging(reqPageParam);
     }
 
     @RequestMapping("/del")
-    public void del(int delId){
+    public void del(int delId) {
         dependenciesService.removeById(delId);
     }
 
@@ -42,12 +43,11 @@ public class DependenciesController {
     }
 
     @RequestMapping("/update")
-    public void update(DependenciesDomain dependenciesDomain){
+    public void update(DependenciesDomain dependenciesDomain) {
         UpdateWrapper<DependenciesDomain> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id", dependenciesDomain.getId());
         dependenciesService.update(dependenciesDomain, updateWrapper);
     }
-
 
 
 }

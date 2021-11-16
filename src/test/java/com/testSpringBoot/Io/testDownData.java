@@ -1,12 +1,13 @@
 package com.testSpringBoot.Io;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.autogen.code.AutoGenCodeApplication;
 import com.autogen.code.utils.RestTemplateUtils;
-import com.autogen.code.web.domain.DependenciesDomain;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -47,17 +48,31 @@ public class testDownData {
     }
 
     @Test
-    public void test2() {
+    public void test2() throws JsonProcessingException {
 //        ResponseEntity<DependenciesDomain> stringResponseEntity1 = restTemplate.postForEntity("https://start.spring.io", "dependencies", DependenciesDomain.class);
 //        ResponseEntity<String> stringResponseEntity = restTemplateUtils.get("https://start.spring.io", String.class);
 //        String s = stringResponseEntity.getBody();
 //        System.out.println("s = " + s);
 
 
-        ResponseEntity<DependenciesDomain> stringResponseEntity = restTemplateUtils.post("https://start.spring.io","dependencies" ,DependenciesDomain.class);
-        DependenciesDomain s = stringResponseEntity.getBody();
-        System.out.println("s = " + s);
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://start.spring.io/metadata/client", String.class);
 
+        if (responseEntity.getStatusCode() == HttpStatus.OK) {
+
+            JSONObject data = JSON.parseObject(responseEntity.getBody());
+
+
+            System.out.println();
+
+
+            JSONObject dependency = data.getJSONObject("dependencies");
+
+            JSONObject dependenciesValues = dependency.getJSONObject("values");
+
+
+            // todo Ryan 2021年11月16日  :  解析并入库 dependency 信息
+
+        }
 
 
     }
