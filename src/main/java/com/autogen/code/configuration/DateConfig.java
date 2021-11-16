@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * @author ：JiaGuo
  * @date ：Created in 2021/11/13 19:11
- * @description：自动填充日期 创建时候
+ * @description： 数据库表createTime自动填充日期
  * @modified By：
  * @version: 1.0
  */

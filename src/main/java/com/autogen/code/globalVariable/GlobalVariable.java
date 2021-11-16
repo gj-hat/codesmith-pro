@@ -9,7 +9,11 @@ package com.autogen.code.globalVariable;
  */
 public class GlobalVariable {
 
-    // 分页查找每页显示的条目
+
+    // mybatis-plus 分页每页显示数量 全局参数
     public static final int RECORD = 7;
+
+
+
 
 }

@@ -1,7 +1,8 @@
-package com.autogen.code.timingTask;
+package com.autogen.code.configuration;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @modified By：
  * @version: 1.0
  */
-@Component
+@Configuration
 public class TimingTask {
     private Logger logger = LoggerFactory.getLogger(getClass());
     private int i;

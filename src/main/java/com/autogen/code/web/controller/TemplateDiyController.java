@@ -2,7 +2,6 @@ package com.autogen.code.web.controller;
 
 
 import com.autogen.code.web.domain.TemplateDiyDomain;
-import com.autogen.code.web.domain.vo.BaseTemplateVo;
 import com.autogen.code.web.domain.vo.TemplateDiyVo;
 import com.autogen.code.web.service.Impl.TemplateDiyServiceImpl;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/templateDiy")

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author ：JiaGuo
  * @date ：Created in 2021/11/13 23:20
- * @description：mp分页配置
+ * @description：mybatis-plus分页配置
  * @modified By：
  * @version: 1.0
  */
