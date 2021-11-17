@@ -15,6 +15,9 @@ public class AutoGenCodeApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AutoGenCodeApplication.class, args);
+
+
+
     }
 
 }

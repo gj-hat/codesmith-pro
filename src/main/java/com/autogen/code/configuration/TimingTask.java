@@ -39,7 +39,7 @@ public class TimingTask {
 
 
 //    @Scheduled(cron = "0 0 23 * * ?")
-    @Scheduled(cron = "*/5 * * * * ?")
+//    @Scheduled(cron = "*/5 * * * * ?")
     public void execute() {
         logger.info("每隔5秒触发一次定时任务:第:{}次执行", ++i);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://start.spring.io/metadata/client", String.class);
@@ -73,6 +73,10 @@ public class TimingTask {
                         e.printStackTrace();
                     }
                     dependenciesService.saveOrUpdate(dependenciesDomain);
+
+
+
+
                 }
             }
 
