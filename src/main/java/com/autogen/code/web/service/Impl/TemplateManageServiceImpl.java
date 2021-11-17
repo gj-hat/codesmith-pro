@@ -5,7 +5,6 @@ import com.autogen.code.web.domain.TemplateManageDomain;
 import com.autogen.code.web.domain.vo.TemplateManageVo;
 import com.autogen.code.web.mapper.TemplateManageMapper;
 import com.autogen.code.web.service.TemplateManageService;
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -21,13 +20,11 @@ import org.springframework.stereotype.Service;
  * @version:     1.0
  */
 @Service
-@DS("slave_1")
 public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper, TemplateManageDomain> implements TemplateManageService {
 
 
     @Autowired
     TemplateManageMapper templateManageMapper;
-
     @Override
     public TemplateManageVo findAllPaging(int pageNum) {
         TemplateManageVo templateVo = new TemplateManageVo();
@@ -39,12 +36,6 @@ public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper
         templateVo.setTemplateManageDomainList(page.getRecords());
         return templateVo;
     }
-
-//    public List<TemplateManageDomain> findNotAll(int pageNum) {
-//        QueryWrapper<TemplateManageDomain> queryWrapper = new QueryWrapper<>();
-//        queryWrapper.eq("del_mark", false);
-//        return templateManageService.list(queryWrapper);
-//    }
     @Override
     public TemplateManageVo findNotAllPaging(int pageNum) {
         TemplateManageVo templateVo = new TemplateManageVo();
@@ -58,15 +49,4 @@ public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper
         templateVo.setTemplateManageDomainList(page.getRecords());
         return templateVo;
     }
-
-    //    @Override
-//    public IPage<TemplateManageDomain> selectPageVo(Page<TemplateManageDomain> page) {
-//        return templateManageMapper.selectPageVo(page);
-//    }
-
-//
-//    @Override
-//    public List<TemplateManageDomain> findNotAll() {
-//        return ;
-//    }
 }

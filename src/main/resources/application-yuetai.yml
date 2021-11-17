@@ -2,20 +2,10 @@
 # 多数据源
 spring:
   datasource:
-    dynamic:
-      primary: slave_1 #设置默认的数据源或者数据源组,默认值即为master
-      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
-      datasource:
-        master:
-          url: jdbc:postgresql://10.254.130.27:5432/postgres?currentSchema=autogencode
-          username: postgres
-          password: 321321
-          driver-class-name: org.postgresql.Driver
-        slave_1:
-          url: jdbc:postgresql://10.254.130.27:5433/postgres?currentSchema=autogencode
-          username: gencode_dev
-          password: Gencode_Dev
-          driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://10.254.130.27:5433/postgres?currentSchema=public
+        username: gencode_dev
+        password: Gencode_Dev
+        driver-class-name: org.postgresql.Driver
 
 
 

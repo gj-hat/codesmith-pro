@@ -5,7 +5,6 @@ import com.autogen.code.web.domain.TemplateDiyDomain;
 import com.autogen.code.web.domain.vo.TemplateDiyVo;
 import com.autogen.code.web.mapper.TemplateDiyMapper;
 import com.autogen.code.web.service.TemplateDiyService;
-import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Service;
  * @version: 1.0
  */
 @Service
-@DS("slave_1")
 public class TemplateDiyServiceImpl extends ServiceImpl<TemplateDiyMapper, TemplateDiyDomain> implements TemplateDiyService {
 
     @Autowired

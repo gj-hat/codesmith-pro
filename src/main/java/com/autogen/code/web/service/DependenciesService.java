@@ -12,11 +12,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @version: 1.0
  */
 public interface DependenciesService extends IService<DependenciesDomain> {
-    DependenciesVo findPaging(int pageNum);
-
-
-
-
+    //    DependenciesVo findByPaging(ReqPageParam<SpDependencyEntity> reqPageParam);
+    DependenciesVo findByPaging(int numPage);
 
 
 }

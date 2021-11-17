@@ -6,7 +6,6 @@ import com.autogen.code.web.domain.vo.TemplateManageVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
-@Service
 public interface TemplateManageService  extends IService<TemplateManageDomain> {
 
     TemplateManageVo findNotAllPaging(int pageNum);

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
  * @modified By：
  * @version: 1.0
  */
-@Service
 public interface TemplateDiyService extends IService<TemplateDiyDomain> {
     TemplateDiyVo findPaging(int pageNum);
 

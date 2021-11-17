@@ -1,32 +1,37 @@
 package com.autogen.code.web.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
- * @author ：JiaGuo
- * @date ：Created in 2021/11/16 17:06
- * @description：springBoot官方依赖实体类
- * @modified By：
- * @version: 1.0
+ * @author Ryan
+ * @email liuwei412552703@163.com
+ * @date 2021/11/16 18:37
  */
+@TableName("\"Dependencies\"")
 public class DependenciesDomain {
 
-    @TableId(type = IdType.AUTO)
+    @TableId
     private String id;
+
+
+    private String name;
+
+    // 描述
     private String description;
-    private String reqired_version;
+
+    // 组织
+    @TableField("group_name")
+    private String group;
 
 
-    public DependenciesDomain() {
-    }
+    // 版本范围
+    @TableField("version_range")
+    private String versionRange;
 
-    public DependenciesDomain(String id, String description, String reqired_version) {
-        this.id = id;
-        this.description = description;
-        this.reqired_version = reqired_version;
-    }
-
+    // 参考docs
+    private String reference;
 
     public String getId() {
         return id;
@@ -34,6 +39,22 @@ public class DependenciesDomain {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public String getDescription() {
@@ -44,11 +65,31 @@ public class DependenciesDomain {
         this.description = description;
     }
 
-    public String getReqired_version() {
-        return reqired_version;
+    public String getVersionRange() {
+        return versionRange;
     }
 
-    public void setReqired_version(String reqired_version) {
-        this.reqired_version = reqired_version;
+    public void setVersionRange(String versionRange) {
+        this.versionRange = versionRange;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    @Override
+    public String toString() {
+        return "DependenciesDomain{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", group='" + group + '\'' +
+                ", description='" + description + '\'' +
+                ", versionRange='" + versionRange + '\'' +
+                ", reference='" + reference + '\'' +
+                '}';
     }
 }
