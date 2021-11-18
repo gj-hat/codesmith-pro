@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -38,10 +37,10 @@ public class TimingTask {
     private DependenciesServiceImpl dependenciesService;
 
 
-//    @Scheduled(cron = "0 0 23 * * ?")
+    @Scheduled(cron = "0 0 23 * * ?")
 //    @Scheduled(cron = "*/5 * * * * ?")
     public void execute() {
-        logger.info("每隔5秒触发一次定时任务:第:{}次执行", ++i);
+        logger.info("每天11点触发一次定时任务:第:{}次执行", ++i);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://start.spring.io/metadata/client", String.class);
 
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
