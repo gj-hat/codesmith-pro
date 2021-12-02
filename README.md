@@ -60,11 +60,12 @@
 
 ## todo
 
-2021年11月19日 前完成
-1. 对接 SpringBoot 官方，定期获取 依赖及相关信息；为生成项目提供支撑；
-2. SpringBoot项目依赖信息管理、全局参数配置功能、模板管理、数据源管理、项目管理 增删改查；
-3. 生成项目(项目 ——> 数据源 、模板) 接口、生成代码接口；
-
+1. 通用: controller   
+2. 通用: mapper.xml
+3. 通用: application.xml
+4. mybatis风格  service mapper domain
+5. mybatis-plus风格  service mapper domain
+6. pox.xml  不需要重写 只添加 mybatis-plus等springBoot官网没有的数据
 
 
 

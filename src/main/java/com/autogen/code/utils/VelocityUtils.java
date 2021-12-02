@@ -49,6 +49,8 @@ public class VelocityUtils {
             Template tpl = Velocity.getTemplate(template, "utf-8");
             // 合并代码
             StringWriter sw = new StringWriter();
+
+
             tpl.merge(velocityContext, sw);
 
             // 把代码数据输出到zip中

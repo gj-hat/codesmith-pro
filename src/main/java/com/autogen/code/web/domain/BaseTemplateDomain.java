@@ -66,4 +66,6 @@ public class BaseTemplateDomain {
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
+
+
 }

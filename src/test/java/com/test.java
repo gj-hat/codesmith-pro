@@ -2,6 +2,8 @@ package com;
 
 import org.junit.Test;
 
+import java.io.File;
+
 /**
  * @author ：JiaGuo
  * @date ：Created in 2021/11/18 12:59
@@ -13,14 +15,8 @@ public class test {
 
 
 
+    
 
-    @Test
-    public void test1(){
-
-
-
-
-    }
 
 
 }

@@ -21,8 +21,6 @@ public class SpringBootManager {
 
     public void generatorProject(ProjectDto projectDto) {
 
-        // todo 2021年11月12日  Ryan :
-
 
 
 
