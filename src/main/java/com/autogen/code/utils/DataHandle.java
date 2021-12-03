@@ -1,6 +1,7 @@
 package com.autogen.code.utils;
 
-import org.apache.logging.log4j.message.StringFormattedMessage;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author ：JiaGuo
@@ -14,9 +15,35 @@ public class DataHandle {
 
 
     public static void main(String[] args) {
-        System.out.println(slashToPort("User/account/name" ));
+        System.out.println(slashToPort("User/account/name"));
     }
 
+    private static final Map<String, String> dataTypes = new HashMap<>();
+
+    static{
+        dataTypes.put("String", "String");
+    }
+
+
+    enum DbDataType {
+
+        MySQL {
+
+
+            @Override
+            public String convert(String columnType) {
+                return dataTypes.get(columnType);
+            }
+        },
+        Postgresql {
+            @Override
+            public String convert(String columnType) {
+                return "";
+            }
+        };
+
+        abstract String convert(String columnType);
+    }
 
     /**
      * sql数据类型转java数据类型
@@ -25,6 +52,12 @@ public class DataHandle {
      * @return java数据类型
      */
     public static String typeTransformation(String sqlTypeName) {
+
+        String clazz = DbDataType.MySQL.convert("varchar");
+
+
+
+
         return null;
     }
 
@@ -66,33 +99,31 @@ public class DataHandle {
      * @return 驼峰字符串   不做大小写处理
      */
     public static String underlineToHump(String st) {
-        return st.replaceAll("_", "/" );
+        return st.replaceAll("_", "/");
 
     }
-
-
 
 
     /**
      * 将传入的字符串按顺序把"点" --- "斜线"
      *
      * @param st 不定长参数
-     * @return   string
+     * @return string
      */
     public static String pointToSlash(String st) {
-        return st.replaceAll("\\.", "/" );
+        return st.replaceAll("\\.", "/");
     }
 
     /**
      * 将传入的字符串按顺序把"反斜线"  ---  "点"
      *
      * @param st 不定长参数
-     * @return    string
+     * @return string
      */
     public static String slashToPort(String st) {
 
 
-        return st.replaceAll("/", "." );
+        return st.replaceAll("/", ".");
     }
 
 
