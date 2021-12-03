@@ -1,6 +1,6 @@
 ##package com.gjstudy.velocitystudy.web.mapper;
 package ${package}.web.mapper;
-import ${package}.web.domain.User;
+import ${package}.web.domain.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -8,17 +8,17 @@ import java.util.List;
 ## mapper-mabatis
 /**
 * 需要的参数
-* 1. tableName       格式: String    表示:表名
+* 1. TableName       格式: String    表示:表名
 * 2. package         格式: String    表示:包名
 */
 
 @Repository
-public interface ${tableName}Mapper} {
-    List<${tableName}> list();
+public interface ${TableName}Mapper {
+    List<${TableName}> list();
 
     void save();
 
-    void update(${tableName} ${velocityUtils.toLow(${tableName})});
+    void update(${TableName} ${DataHandle.toLow(${TableName})});
 
     void del(int[] ids);
 }

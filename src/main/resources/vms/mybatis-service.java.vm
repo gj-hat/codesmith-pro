@@ -1,0 +1,12 @@
+package ${package}.web.service;
+
+public interface ${TableName}Service {
+
+
+    public List<${TableName}> list() ;
+
+    public void save() ;
+    public void update(${TableName} ${DataHandle.toLow(${TableName})});
+
+   public void del(int[] ids);
+}

@@ -10,7 +10,7 @@ import org.apache.logging.log4j.message.StringFormattedMessage;
  * @version: 1.0
  */
 public class DataHandle {
-
+// TODO: 2021/12/3 待完善
 
 
     /**
@@ -29,9 +29,22 @@ public class DataHandle {
      * @param st   大驼峰字符串
      * @return     小驼峰字符串
      */
+    public static String toLow(String st){
+        return null;
+    }
+
+
+
+    /**
+     * 首字母小写转大写
+     * @param st   小驼峰字符串
+     * @return     大驼峰字符串
+     */
     public static String toBig(String st){
         return null;
     }
+
+
 
 
     /**
@@ -44,6 +57,14 @@ public class DataHandle {
     }
 
 
+    /**
+     * sql经典命名转java经典命名小驼峰
+     * @param string      下划线命名字符串
+     * @return            大驼峰字符串
+     */
+    public static String toSmallHump(String string) {
+        return null;
+    }
 
 
 

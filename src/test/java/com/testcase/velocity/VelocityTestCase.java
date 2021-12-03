@@ -43,8 +43,8 @@ public class VelocityTestCase {
         // 模板列表
         List<String> templates = new ArrayList<String>();
         templates.add("vms/Controller.java.vm");
-        templates.add("vms/Service.java.vm");
-        templates.add("vms/Mapper.java.vm");
+        templates.add("vms/mybatis-ServiceImpl.java.vm" );
+        templates.add("vms/mybatis-Mapper.java.vm" );
 
 
         // 输出流

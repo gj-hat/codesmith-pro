@@ -92,11 +92,11 @@ public class GenUtils {
         }
 
         // 业务层
-        if (template.contains("Service.java.vm")) {
+        if (template.contains("mybatis-ServiceImpl.java.vm")) {
             return packagePath + "Service" + File.separator + className + "Service.java";
         }
         // 持久层
-        if (template.contains("Mapper.java.vm")) {
+        if (template.contains("mybatis-Mapper.java.vm")) {
             return packagePath + "Mapper" + File.separator + className + "Mapper.java";
         }
 

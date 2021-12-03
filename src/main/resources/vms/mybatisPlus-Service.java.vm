@@ -1,0 +1,15 @@
+package ${package}.web.service;
+
+import ${package}.web.domain.*;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ * @author ：JiaGuo
+ * @date ：Created in 2021/11/13 14:52
+ * @description：interface ${TableName}Service
+ * @modified By：
+ * @version: 1.0
+ */
+public interface ${TableName}Service extends IService<${TableName}Domain> {
+
+}

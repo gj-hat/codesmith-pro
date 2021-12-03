@@ -1,0 +1,14 @@
+package ${package}.web.mapper;
+
+import ${package}.web.domain.*;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface ${TableName}Mapper extends BaseMapper<${TableName}Domain> {
+
+
+
+
+
+}
