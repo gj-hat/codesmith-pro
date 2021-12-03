@@ -6,7 +6,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.autogen.code.utils.RestTemplateUtils;
 import com.autogen.code.web.domain.DependenciesDomain;
 import com.autogen.code.web.service.Impl.DependenciesServiceImpl;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

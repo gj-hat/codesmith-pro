@@ -1,4 +1,4 @@
-package com.autogen.code.configuration;
+package com.autogen.code.utils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -65,11 +65,11 @@ public class AnalysisSQL {
                     isNull = "notNull";
                 } else isNull = "null";
                 columnName = columns.getString("COLUMN_NAME");
-                attribute.add(columns.getString("COLUMN_NAME"));
+//                attribute.add(columns.getString("COLUMN_NAME"));
                 attribute.add(columns.getString("TYPE_NAME"));
                 attribute.add(columns.getString("COLUMN_SIZE"));
-                attribute.add(isNull);
                 attribute.add(isPriKey);
+                attribute.add(isNull);
                 tableNameAndAttribute.put(columnName, attribute);
             }
             tables.put(tableName, tableNameAndAttribute);

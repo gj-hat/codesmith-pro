@@ -1,0 +1,30 @@
+package ${package}.web.domain;
+
+/**
+ * @author ：JiaGuo
+ * @date ：Created in 2021/12/2 17:20
+ * @description：这是${tableName}的实体类
+ * @modified By：
+ * @version: 1.0
+ */
+
+## domain-mabtis
+/**
+* 需要的参数
+* 1. tableAttribute  格式: map类型   key:列名(变成驼峰式命名,首字母大写)   value: List类型存放的是列的属性, 第一项是数据类型(记得变成java数据类型) 第二项是否主键
+* 2. tableName       格式: String    表示:表名
+* 3. package     格式: String    表示:包名
+*/
+        // FIXME: 2021/12/2 修改AnalysisSQL方法的返回值
+        // TODO: 2021/12/2 velocityUtil方法   首字母大写转小写
+
+
+@Data
+public class ${tableName} {
+
+ #foreach($item in ${tableAttribute.entrySet()})
+     private ${item.value.get(1).getName()}  ${velocityUtils.toLow(${item.key})};
+ #end
+
+
+}

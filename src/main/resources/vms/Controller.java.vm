@@ -2,41 +2,47 @@
 ## package com.gjstudy.velocitystudy.web.controller;
 package ${package}.controller;
 
-import ${package}.web.domain.${className};
-import ${package}.web.service.${className}Service;
+import ${package}.web.domain.${tableName};
+import ${package}.web.service.${tableName}Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+## 通用的Controller
+/**
+* 需要的参数
+* 1. tableName       格式: String    表示:表名
+* 2. package         格式: String    表示:包名
+*/
+
+
 @RestController
-@RequestMapping("/${genUtils.bigToSmall(${className})}")
-public class ${className}Controller {
+@RequestMapping("/${velocityUtils.toLow(${tableName})}")
+public class ${tableName}Controller {
 
     @Autowired
-    private ${className}Service ${genUtils.bigToSmall(${className})}Service;
+    private ${tableName}Service ${velocityUtils.toLow(${tableName})}Service;
 
 
     @RequestMapping("/list")
-    public List<${className}> list() {
-        return ${genUtils.bigToSmall(${className})}.list();
+    public List<${tableName}> list() {
+        return ${velocityUtils.toLow(${tableName})}.list();
     }
 
     @RequestMapping("/save")
-    public void save(@RequestBody ${className} ${genUtils.bigToSmall(${className})}) {
-            ${genUtils.bigToSmall(${className})}Service.save();
+    public void save(@RequestBody ${tableName} ${velocityUtils.toLow(${tableName})}) {
+            ${velocityUtils.toLow(${tableName})}Service.save();
     }
 
     @RequestMapping("/update")
-    public void update(@RequestBody ${className} ${genUtils.bigToSmall(${className})}) {
-            ${genUtils.bigToSmall(${className})}Service.update(${genUtils.bigToSmall(${className})});
+    public void update(@RequestBody ${tableName} ${velocityUtils.toLow(${tableName})}) {
+            ${velocityUtils.toLow(${tableName})}Service.update(${velocityUtils.toLow(${tableName})});
     }
 
     @RequestMapping("/del")
     public void del(@RequestBody int[] ids) {
-            ${genUtils.bigToSmall(${className})}Service.del(ids);
+            ${velocityUtils.toLow(${tableName})}Service.del(ids);
     }
-
-
 }

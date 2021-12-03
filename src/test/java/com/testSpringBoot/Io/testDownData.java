@@ -7,7 +7,6 @@ import com.autogen.code.AutoGenCodeApplication;
 import com.autogen.code.utils.RestTemplateUtils;
 import com.autogen.code.web.domain.DependenciesDomain;
 import com.autogen.code.web.service.Impl.DependenciesServiceImpl;
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;

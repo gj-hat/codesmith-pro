@@ -5,13 +5,20 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+## mapper-mabatis
+/**
+* 需要的参数
+* 1. tableName       格式: String    表示:表名
+* 2. package         格式: String    表示:包名
+*/
+
 @Repository
-public interface ${className}Mapper} {
-    List<${className}> list();
+public interface ${tableName}Mapper} {
+    List<${tableName}> list();
 
     void save();
 
-    void update(${className} ${genUtils.bigToSmall(${className})});
+    void update(${tableName} ${velocityUtils.toLow(${tableName})});
 
     void del(int[] ids);
 }

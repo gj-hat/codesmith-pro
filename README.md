@@ -60,11 +60,11 @@
 
 ## todo
 
-1. 通用: controller   
-2. 通用: mapper.xml
-3. 通用: application.xml
-4. mybatis风格  service mapper domain
-5. mybatis-plus风格  service mapper domain
+1. 通用: controller     ok1
+2. 通用: mapper.xml     ok1
+3. 通用: application.xml       
+4. mybatis风格  service mapper domain    ok1
+5. mybatis-plus风格  service mapper domain     ok1
 6. pox.xml  不需要重写 只添加 mybatis-plus等springBoot官网没有的数据
 
 

@@ -3,6 +3,13 @@ package ${package}.velocitystudy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+## 通用的启动器
+/**
+* 需要的参数
+* 1. package         格式: String    表示:包名
+*/
+
 @SpringBootApplication
 public class SpringBootApplication {
 

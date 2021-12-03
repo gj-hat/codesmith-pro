@@ -1,5 +1,5 @@
 ##package com.gjstudy.velocitystudy.web.service;
-package ${package}.web.service;
+package ${package}.web.service.impl;
 
 
 import ${package}.web.domain.User;
@@ -9,26 +9,35 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+## service-mybatis
+/**
+* 需要的参数
+* 1. tableName       格式: String    表示:表名
+* 2. package         格式: String    表示:包名
+*/
+
+
+
 @Service
-public class ${className}Service} {
+public class ${tableName}ServiceImpl} implements ${tableName}Service {
 
 
     @Autowired
-    private ${className}Mapper ${genUtils.bigToSmall(${className})}Mapper;
+    private ${tableName}Mapper ${genUtils.bigToSmall(${tableName})}Mapper;
 
-    public List<${className}> list() {
-        return ${genUtils.bigToSmall(${className})}Mapper.list();
+    public List<${tableName}> list() {
+        return ${velocityUtils.toLow(${tableName})}Mapper.list();
     }
 
     public void save() {
-        ${genUtils.bigToSmall(${className})}Mapper.save()};
+        ${velocityUtils.toLow(${tableName})}Mapper.save()};
     }
 
-    public void update(${className} ${genUtils.bigToSmall(${className})}) {
-        ${genUtils.bigToSmall(${className})}Mapper.update(${genUtils.bigToSmall(${className})})};
+    public void update(${tableName} ${velocityUtils.toLow(${tableName})}) {
+        ${velocityUtils.toLow(${tableName})}Mapper.update(${velocityUtils.toLow(${tableName})})};
     }
 
     public void del(int[] ids) {
-        ${genUtils.bigToSmall(${className})}Mapper.del(ids)};
+        ${velocityUtils.toLow(${tableName})}Mapper.del(ids)};
     }
 }
