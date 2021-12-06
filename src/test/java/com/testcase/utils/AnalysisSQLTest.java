@@ -18,8 +18,7 @@ import java.util.Map;
 public class AnalysisSQLTest {
 
 
-
-
+    String jdbcStruct = "{TemplateDiy={templateType=[String, notPriKey, notNull], path=[String, notPriKey, notNull], extensionName=[String, notPriKey, notNull], templateName=[String, notPriKey, notNull], createTime=[String, notPriKey, notNull], author=[String, notPriKey, notNull], prefixDefault=[String, notPriKey, notNull], templateContent=[String, notPriKey, notNull], packageName=[String, notPriKey, notNull], templateId=[int, isPriKey, null]}, Dependencies={reference=[String, notPriKey, notNull], versionRange=[String, notPriKey, notNull], groupName=[String, notPriKey, notNull], name=[String, notPriKey, notNull], description=[String, notPriKey, notNull], id=[String, isPriKey, null]}, TemplateManage={createTime=[String, notPriKey, notNull], delMark=[Boolean, notPriKey, notNull], templateContent=[String, notPriKey, notNull], className=[String, notPriKey, notNull], packageName=[String, notPriKey, notNull], templateId=[int, isPriKey, null], tableName=[String, notPriKey, notNull]}}";
 
     @Test
     public void test1() throws SQLException, ClassNotFoundException {
@@ -36,7 +35,6 @@ public class AnalysisSQLTest {
 
     }
 
-
     // 测试sql to java 转化
     @Test
     public void test2() throws SQLException, ClassNotFoundException {
@@ -50,7 +48,6 @@ public class AnalysisSQLTest {
 
     }
 
-
     @Test
     public void test3(){
         String user_name = DataHandle.underlineToHump("user_name");
@@ -59,6 +56,14 @@ public class AnalysisSQLTest {
 
         String user_name1 = DataHandle.underlineToHump("_user_Name");
         System.out.println("user_name1 = " + user_name1);
+    }
+
+
+    @Test
+    public void test4(){
+
+
+
     }
 
 

@@ -20,7 +20,9 @@ package ${package}.web.domain;
 public class ${TableName}Domain {
 
  #foreach($item in ${tableAttribute.entrySet()})
-     private ${item.value.get(0).getName()}  ${DataHandle.toLow(${item.key})};
+
+     private ${item.value.get(0)}  ${DataHandle.bigToLow(${item.key})};
+
  #end
 
 

@@ -23,21 +23,21 @@ public class ${TableName}ServiceImpl implements ${TableName}Service {
 
 
     @Autowired
-    private ${TableName}Mapper ${DataHandle.toLow(${TableName})}Mapper;
+    private ${TableName}Mapper ${DataHandle.bigToLow(${TableName})}Mapper;
 
     public List<${TableName}> list() {
-        return ${DataHandle.toLow(${TableName})}Mapper.list();
+        return ${DataHandle.bigToLow(${TableName})}Mapper.list();
     }
 
     public void save() {
-        ${DataHandle.toLow(${TableName})}Mapper.save()};
+        ${DataHandle.bigToLow(${TableName})}Mapper.save()};
     }
 
-    public void update(${TableName} ${DataHandle.toLow(${TableName})}) {
-        ${DataHandle.toLow(${TableName})}Mapper.update(${DataHandle.toLow(${TableName})})};
+    public void update(${TableName} ${DataHandle.bigToLow(${TableName})}) {
+        ${DataHandle.bigToLow(${TableName})}Mapper.update(${DataHandle.bigToLow(${TableName})})};
     }
 
     public void del(int[] ids) {
-        ${DataHandle.toLow(${TableName})}Mapper.del(ids)};
+        ${DataHandle.bigToLow(${TableName})}Mapper.del(ids)};
     }
 }

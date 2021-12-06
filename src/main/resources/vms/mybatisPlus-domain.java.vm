@@ -23,10 +23,10 @@ import com.baomidou.mybatisplus.annotation.TableId;
 public class ${TableName}Domain {
 
  #foreach($item in ${tableAttribute.entrySet()})
-     #if(${item.value.get(2).getName()} == "isPriKey")
+     #if(${item.value.get(2)} == "isPriKey")
      @TableId(type = IdType.AUTO)
      #end
-     private ${item.value.get(0).getName()}  ${DataHandle.toLow(${item.key})};
+     private ${item.value.get(0)}  ${DataHandle.toLow(${item.key})};
  #end
 
 

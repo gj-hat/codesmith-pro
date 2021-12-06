@@ -37,14 +37,14 @@
     <insert id="insertData">
         INSERT INTO ${underLineTableName}(
         #foreach($item in ${underLineTableAttribute.entrySet()})
-            #if(${item.value.get(2).getName()} == "notPriKey")
+            #if(${item.value.get(2)} == "notPriKey")
             ${item.key}
             #if($foreach.hasNext),#end
             #end
         #end
 )values(
             #foreach($item in ${tableAttribute.entrySet()})
-                #if(${item.value.get(2).getName()} == "notPriKey")
+                #if(${item.value.get(2)} == "notPriKey")
                     #{${item.key}}
                     #if($foreach.hasNext),#end
                 #end
@@ -56,13 +56,16 @@
 
     <update id="updateData">
         UPDATE ${underLineTableName}
-        SET
+        SET (
             #foreach($item in ${underLineTableAttribute.entrySet()})
-                #if(${item.value.get(2).getName()} == "notPriKey")
+
+                ${item.value.get(2)}
+                ${item.value.get(0)}
+                #if(${item.value.get(2)} == "notPriKey")
                     ${item.key} = #{DataHandle.toSmallHump(${item.key})}
                     #if($foreach.hasNext),#end
                 #end
-            #end
+            #end)
         where   ${underLinePriKey} = #{${humpPriKey}}
     </update>
 

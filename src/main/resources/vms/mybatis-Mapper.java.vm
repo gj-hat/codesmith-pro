@@ -18,7 +18,7 @@ public interface ${TableName}Mapper {
 
     void save();
 
-    void update(${TableName} ${DataHandle.toLow(${TableName})});
+    void update(${TableName} ${DataHandle.bigToLow(${TableName})});
 
     void del(int[] ids);
 }

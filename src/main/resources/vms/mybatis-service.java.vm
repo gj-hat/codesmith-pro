@@ -6,7 +6,7 @@ public interface ${TableName}Service {
     public List<${TableName}> list() ;
 
     public void save() ;
-    public void update(${TableName} ${DataHandle.toLow(${TableName})});
+    public void update(${TableName} ${DataHandle.bigToLow(${TableName})});
 
    public void del(int[] ids);
 }
