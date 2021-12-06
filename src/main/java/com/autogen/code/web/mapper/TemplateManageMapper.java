@@ -9,18 +9,4 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface TemplateManageMapper  extends BaseMapper<TemplateManageDomain> {
-
-//    Page<TemplateManageDomain> selectPageVo(Page<TemplateManageDomain> page);
-
-//    public List<TemplateManageDomain> findAll();
-//
-//    public List<TemplateManageDomain> findNotAll();
-//
-//    public List<TemplateManageDomain> findId(int templateId);
-//
-//    public void insertData(TemplateManageDomain templateManageDomain);
-//
-//    public void delDataId(int templateId);
-//
-//    public void updateData(int templateId, TemplateManageDomain templateManageDomain);
 }

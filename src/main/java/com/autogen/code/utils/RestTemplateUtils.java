@@ -14,20 +14,15 @@ import java.util.Map;
 @Component
 public class RestTemplateUtils {
 
-
     @Autowired
     private RestTemplate restTemplate;
-
     private static RestTemplateUtils rtu;
-
     @PostConstruct
     public void init() {
         rtu = this;
         rtu.restTemplate = this.restTemplate;
     }
-
     // ----------------------------------GET-------------------------------------------------------
-
     /**
      * GET请求调用方式
      *
@@ -646,9 +641,6 @@ public class RestTemplateUtils {
     /**
      * GET请求构造url
      *
-     * @param url
-     * @param uriVariables
-     * @return
      */
     private static String constructUrl(String url, Map<String, ?> uriVariables) {
         if (uriVariables.isEmpty()) {

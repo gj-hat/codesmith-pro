@@ -1,6 +1,7 @@
 package com.autogen.code.web.controller;
 
 import com.autogen.code.utils.RestTemplateUtils;
+import com.autogen.code.web.controller.dto.RequestSpringBootParaDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +26,13 @@ public class RequestSpringBootController {
     private RestTemplateUtils restTemplateUtils;
 
     @RequestMapping("/downZip")
-    public void downZip() {
-        String url = "https://start.springboot.io/starter.zip?type=maven-project&language=java&bootVersion=2.5.6&baseDir=BaseDir&groupId=GroupId&artifactId=ArtifactId&name=Name&description=Description&packageName=PackageName&packageing=jar&javaVersion=11&dependencies=web,jdbc";
+    public void downZip(RequestSpringBootParaDto springBootParaDto) {
+        String rootUrl = "https://start.springboot.io/starter.zip?";
+        // http://127.0.0.1:8080/requestDown/downZip?type=maven-project&language=java&bootVersion=2.5.6&baseDir=BaseDir&groupId=GroupId&artifactId=ArtifactId&name=Name&description=Description&packageName=PackageName&packageing=jar&javaVersion=11&dependencies=web,jdbc
+        // String url = "https://start.springboot.io/starter.zip?type=maven-project&language=java&bootVersion=2.5.6&baseDir=BaseDir&groupId=GroupId&artifactId=ArtifactId&name=Name&description=Description&packageName=PackageName&packageing=jar&javaVersion=11&dependencies=web,jdbc";
 
-        ResponseEntity<byte[]> entity = restTemplateUtils.get(url, byte[].class);
+        String url = rootUrl + springBootParaDto.toString();
+        ResponseEntity<byte[]> entity = RestTemplateUtils.get(url, byte[].class);
         byte[] body = entity.getBody();
 
         String zipPath = "/Volumes/SoftWare/JetBrains/IDEA/codesmith-pro/src/main/resources/tempDown/zip/temp.zip";

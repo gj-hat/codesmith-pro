@@ -16,14 +16,9 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(value = {PaginationInterceptor.class})
 public class MybatisPlusPagingConfig {
 
-    //    @Bean
-//    public PaginationInterceptor paginationInterceptor() {
-//        return new PaginationInterceptor();
-//    }
     @Bean
     public PaginationInterceptor paginationInterceptor() {
-        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-        return paginationInterceptor;
+        return new PaginationInterceptor();
     }
 
 }

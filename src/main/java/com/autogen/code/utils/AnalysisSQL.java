@@ -26,7 +26,7 @@ public class AnalysisSQL {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static Map<String,Map> analysisSqlStruct(String url,String driver, String username, String password) throws ClassNotFoundException, SQLException {
+    public static Map<String,Map<String,List<String>>> analysisSqlStruct(String url, String driver, String username, String password) throws ClassNotFoundException, SQLException {
 
         String keyColumn = null;
         String columnName;
@@ -39,13 +39,13 @@ public class AnalysisSQL {
         ResultSet tablesRes = metaData.getTables(connection.getCatalog(), null, "%", new String[]{"TABLE"});
 
         // map<String  表名, Map<String 列名, List<列属性(比如列的数据类型,主键, 自增......)> >  >
-        Map<String, Map> tables = new HashMap<>();
+        Map<String,Map<String,List<String>>> tables = new HashMap<>();
 
         // 获取表
         // connection.getCatalog() = 链接的数据库名 = testMysql
         ResultSetMetaData md = tablesRes.getMetaData();//获取键名
         while (tablesRes.next()) {
-            Map<String, List> tableNameAndAttribute = new HashMap<>();
+            Map<String, List<String>> tableNameAndAttribute = new HashMap<>();
 
             // 获取每一个表的表名
             tableName = tablesRes.getString("TABLE_NAME");

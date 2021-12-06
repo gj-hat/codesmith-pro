@@ -41,14 +41,10 @@ public class TimingTask {
     public void execute() {
         logger.info("每天11点触发一次定时任务:第:{}次执行", ++i);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://start.spring.io/metadata/client", String.class);
-
         if (responseEntity.getStatusCode() == HttpStatus.OK) {
-
             JSONObject data = JSON.parseObject(responseEntity.getBody());
             JSONObject dependency = data.getJSONObject("dependencies");
             JSONArray jsonArray = dependency.getJSONArray("values");
-
-
             for (Object aaa : jsonArray) {
                 String s1 = aaa.toString();
                 JSONObject jsonObject = JSONObject.parseObject(new String(s1));
@@ -62,7 +58,6 @@ public class TimingTask {
                     dependenciesDomain.setDescription(sonObject.getString("description"));
                     dependenciesDomain.setVersionRange(sonObject.getString("versionRange"));
                     dependenciesDomain.setGroup(jsonObject.getString("name"));
-
                     try {
                         JSONObject links = sonObject.getJSONObject("_links");
                         JSONObject sonSonObject = links.getJSONObject("reference");
@@ -71,10 +66,6 @@ public class TimingTask {
                         e.printStackTrace();
                     }
                     dependenciesService.saveOrUpdate(dependenciesDomain);
-
-
-
-
                 }
             }
 

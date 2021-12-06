@@ -20,27 +20,18 @@ import java.util.Date;
 public class DateConfig implements MetaObjectHandler {
 
     /**
-     *
-     * @param metaObject
+     * 自动注入时间
      */
     @Override
     public void insertFill(MetaObject metaObject) {
         //设置属性值
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        dateFormat.format(new Date());
         this.setFieldValByName("createTime",dateFormat.format(new Date()),metaObject);
-//        this.setFieldValByName("updateTime",new Date(),metaObject);
     }
 
 
-
-    /**
-     *
-     * @param metaObject
-     */
     @Override
     public void updateFill(MetaObject metaObject) {
-//        this.setFieldValByName("updateTime",new Date(),metaObject);
     }
 
 

@@ -21,14 +21,8 @@ public class DependenciesController {
      * 分页查找
      *
      * @param pageNum    页数
-     * @return
      */
-//    @RequestMapping("/findAll")
-//    public DependenciesVo findAll(@RequestBody ReqPageParam<SpDependencyEntity> reqPageParam) {
-//        return dependenciesService.findByPaging(reqPageParam);
-//    }
-
-    @RequestMapping("/findAll")
+    @RequestMapping("/list")
     public DependenciesVo findAll(int pageNum) {
         return dependenciesService.findByPaging(pageNum);
     }

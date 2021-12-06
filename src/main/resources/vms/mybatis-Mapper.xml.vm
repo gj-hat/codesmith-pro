@@ -7,7 +7,7 @@
 ##* 1. tableAttribute  格式: map类型   key:列名(变成驼峰式命名,首字母大写)   value: List类型存放的是列的属性, 第一项是数据类型(记得变成java数据类型) 第二项是否主键
 ##* 2. TableName       格式: String    表示:表名
 ##* 3. package     格式: String    表示:包名
-##* 4. underLineTableAttribute      同上但是列名是原始的下划线式命名
+##* 4. underLineTableAttribute      同上但是列名是原始的下划线式命名        [0]:数据类型 [1]:长度  [2]:是否主键
 ##* 5. underLineTableName      下划线风格表名
 ##* 6. underLinePriKey   下划线风格主键
 ##* 7. humpPriKey       小驼峰风格主键
