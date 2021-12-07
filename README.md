@@ -32,7 +32,7 @@
 | 中文注释 | 字段名          | 字段类型  | 约束           |
 | -------- | --------------- | --------- | -------------- |
 | 模板 ID  | templateId      | integer   | 非空,主键,自增 |
-| 表名     | tableName       | char(255) |                |
+| 模板名     | templateName       | char(255) |                |
 | 模板内容 | templateContent | char(255) |                |
 | 类名     | className       | char(255) |                |
 | 包名     | packageName     | char(255) |                |

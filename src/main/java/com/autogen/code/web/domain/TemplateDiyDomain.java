@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * templateDiy实体类
  */
 
-@TableName("\"TemplateDiy\"")
+@TableName("\"template_diy\"")
 public class TemplateDiyDomain extends BaseTemplateDomain {
 
     private String templateName;

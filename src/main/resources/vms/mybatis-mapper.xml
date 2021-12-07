@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${package}.web.mapper.${TableName}Mapper}">
+    <select id="findAll" resultType="${package}.web.domain.${TableName}Domain">
+        select *
+        from ${underLineTableName}
+    </select>
+    <select id="findId" resultType="${package}.web.domain.${TableName}Domain">
+        select *
+        from ${underLineTableName}
+            where   ${underLinePriKey} = #{${DataHandle.underlineToSmallHump(${underLinePriKey})}}
+    </select>
+    <delete id="delDataId">
+        DELETE ${underLineTableName} WHEN ${underLinePriKey} = #{${DataHandle.underlineToSmallHump(${underLinePriKey})}}
+    </delete>
+    <insert id="insertData">
+        INSERT
+            INTO ${underLineTableName}
+                SET
+                #foreach($item in ${underLineTableAttribute.entrySet()})
+                    #if(${item.value.get(2)} == "notPriKey")
+                        ${item.key} = #{${DataHandle.underlineToSmallHump(${item.key})}}#if($foreach.hasNext),#end
+            #end
+                #end
+    </insert>
+    <update id="updateData">
+        UPDATE ${underLineTableName}
+            SET (
+            #foreach($item in ${underLineTableAttribute.entrySet()})
+                #if(${item.value.get(2)} == "notPriKey")
+                    ${item.key} = #{${DataHandle.underlineToSmallHump(${item.key})}}#if($foreach.hasNext),#end
+                #end
+            #end)
+        where   ${underLinePriKey} = #{${humpPriKey}}
+    </update>
+</mapper>
+

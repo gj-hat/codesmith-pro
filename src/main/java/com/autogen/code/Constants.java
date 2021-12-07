@@ -15,4 +15,17 @@ public interface Constants {
      */
     int RECORD = 7;
 
+
+    // SpringBoot官网的下载路径
+    String DOWN_PATH = "/Volumes/SoftWare/JetBrains/IDEA/codesmith-pro/src/main/resources/tempDown/zip/";
+
+    // 解压路径
+    String DECOMPRESSION = "/Volumes/SoftWare/JetBrains/IDEA/codesmith-pro/src/main/resources/tempDown/folder/";
+
+
+    // 前缀path
+    String PREFIX_PATH = "/Volumes/SoftWare/JetBrains/IDEA/codesmith-pro/src/main/resources/tempDown/folder/BaseDir/src/main/";
+
+
+
 }

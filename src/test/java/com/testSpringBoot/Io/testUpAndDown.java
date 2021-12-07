@@ -1,6 +1,8 @@
 package com.testSpringBoot.Io;
 
 import com.autogen.code.AutoGenCodeApplication;
+import com.autogen.code.Constants;
+import com.autogen.code.utils.DataHandle;
 import com.autogen.code.utils.RestTemplateUtils;
 import com.autogen.code.web.service.Impl.DependenciesServiceImpl;
 import org.junit.Test;
@@ -16,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * @author ：JiaGuo
@@ -31,20 +34,23 @@ public class testUpAndDown {
 
     @Autowired
     private RestTemplate restTemplate;
-    @Autowired
-    private RestTemplateUtils restTemplateUtils;
-    @Autowired
-    private DependenciesServiceImpl dependenciesService;
+
 
     @Test
     public void test1() throws IOException {
-        String url = "https://start.springboot.io/starter.zip?type=maven-project&language=java&bootVersion=2.5.6&baseDir=BaseDir&groupId=GroupId&artifactId=ArtifactId&name=Name&description=Description&packageName=PackageName&packageing=jar&javaVersion=11&dependencies=web,jdbc";
+        String url = "https://start.springboot.io/starter.zip?type=maven-project&language=java&bootVersion=2.5.6&baseDir=BaseDir&groupId=com.gj&artifactId=AAA&name=JiaGuo&description=Description&packageName=com.gj.AAA&packageing=jar&javaVersion=11&dependencies=web,jdbc";
 
         HttpHeaders headers = new HttpHeaders();
         ResponseEntity<byte[]> entity = restTemplate.exchange(url, HttpMethod.GET,new HttpEntity<>(headers), byte[].class);
         byte[] body = entity.getBody();
 
-        FileOutputStream outputStream = new FileOutputStream("/Volumes/SoftWare/JetBrains/IDEA/codesmith-pro/src/main/resources/tempDown/temp.zip");
+        String proName = "BaseDir";
+        String path = Constants.DOWN_PATH + proName;
+        FileOutputStream outputStream = new FileOutputStream(path);
+
+
+
+
 
         assert body != null;
         outputStream.write(body);

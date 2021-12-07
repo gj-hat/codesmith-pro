@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: ${url}
+    username: ${username}
+    password: ${password}
+    driver-class-name: ${driver}
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  map-underscore-to-camel-case: true
+

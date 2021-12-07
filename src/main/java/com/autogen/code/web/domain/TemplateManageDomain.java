@@ -7,10 +7,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
  *
  *
  */
-@TableName("\"TemplateManage\"")
+@TableName("\"template_manage\"")
 public class TemplateManageDomain extends BaseTemplateDomain {
 
-    private String tableName;
+    private String templateName;
 
     private String className;
 
@@ -21,9 +21,9 @@ public class TemplateManageDomain extends BaseTemplateDomain {
     }
 
 
-    public TemplateManageDomain(int templateId, String templateContent, String packageName, String createTime, String tableName, String className, boolean delMark) {
+    public TemplateManageDomain(int templateId, String templateContent, String packageName, String createTime, String templateName, String className, boolean delMark) {
         super(templateId, templateContent, packageName, createTime);
-        this.tableName = tableName;
+        this.templateName = templateName;
         this.className = className;
         this.delMark = delMark;
     }
@@ -36,11 +36,11 @@ public class TemplateManageDomain extends BaseTemplateDomain {
 
 
     public String getTableName() {
-        return tableName;
+        return templateName;
     }
 
-    public void setTableName(String tableName) {
-        this.tableName = tableName;
+    public void setTableName(String templateName) {
+        this.templateName = templateName;
     }
 
 

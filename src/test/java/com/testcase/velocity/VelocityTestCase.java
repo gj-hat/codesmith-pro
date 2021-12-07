@@ -1,6 +1,5 @@
 package com.testcase.velocity;
 
-import com.autogen.code.utils.GenUtils;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
@@ -27,9 +26,9 @@ public class VelocityTestCase {
 
         // 模板列表
         List<String> templates = new ArrayList<String>();
-        templates.add("vms/Controller.java.vm");
-        templates.add("vms/mybatis-ServiceImpl.java.vm" );
-        templates.add("vms/mybatis-Mapper.java.vm" );
+        templates.add("vms/controller.java.vm");
+        templates.add("vms/mybatis-serviceImpl.java");
+        templates.add("vms/mybatis-Mapper.java");
 
 
         // 输出流
@@ -38,7 +37,7 @@ public class VelocityTestCase {
         ZipOutputStream zipOutputStream = new ZipOutputStream(outputStream);
 
         // 输出
-        GenUtils.generatorCode(data, templates, zipOutputStream);
+//        GenUtils.generatorCode(data, templates, zipOutputStream);
 
         zipOutputStream.close();
         outputStream.close();

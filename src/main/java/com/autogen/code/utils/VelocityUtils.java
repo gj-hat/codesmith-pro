@@ -91,16 +91,16 @@ public class VelocityUtils {
         // 控制层
         // 传入的模板字符串包含Controller.java.vm
         // 则制作成 main/java/com/gj/study/Controller/UserController.java
-        if (template.contains("Controller.java.vm")) {
+        if (template.contains("controller.java.vm")) {
             return packagePath + "Controller" + File.separator + className + "Controller.java";
         }
 
         // 业务层
-        if (template.contains("mybatis-ServiceImpl.java.vm")) {
+        if (template.contains("mybatis-serviceImpl.java")) {
             return packagePath + "Service" + File.separator + className + "Service.java";
         }
         // 持久层
-        if (template.contains("mybatis-Mapper.java.vm")) {
+        if (template.contains("mybatis-Mapper.java")) {
             return packagePath + "Mapper" + File.separator + className + "Mapper.java";
         }
 

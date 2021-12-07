@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author ：JiaGuo
@@ -14,8 +15,6 @@ import java.util.regex.Matcher;
  * @version: 1.0
  */
 public class DataHandle {
-
-
 
 
     enum DbDataType {
@@ -85,7 +84,6 @@ public class DataHandle {
     }
 
 
-
     /**
      * 原始jdbc风格结构转化为java风格的结构  比如 命名风格,数据类型
      *
@@ -120,7 +118,7 @@ public class DataHandle {
                 }
                 tableStructMap.put(mapKey2, table);
             }
-            resMap.put(mapKey1, tableStructMap);
+            resMap.put(DataHandle.underlineToBigHump(mapKey1), tableStructMap);
         }
         return resMap;
 
@@ -158,7 +156,6 @@ public class DataHandle {
     }
 
 
-
     /**
      * 首字母小写转大写
      *
@@ -173,13 +170,10 @@ public class DataHandle {
         return String.valueOf(stArr);
     }
 
-
-
     /**
-     * 将下划线大写方式命名的字符串转换为驼峰式。如果转换前的下划线大写方式命名的字符串为空，则返回空字符串。
-     * 例如：HELLO_WORLD->HelloWorld
+     * 下划线风格转驼峰  首字母不做大小写转化处理
      *
-     * @param name 转换前的下划线大写方式命名的字符串
+     * @param name 转换前的下划线方式命名的字符串
      * @return 转换后的驼峰式命名的字符串
      */
     public static String underlineToHump(String name) {
@@ -210,6 +204,55 @@ public class DataHandle {
             }
         }
         return result.toString();
+    }
+
+
+    /**
+     * 驼峰转下划线 全小写
+     *
+     * @param name 目标字符串
+     * @return: tring
+     */
+    public static String underscoreName(String name) {
+        StringBuilder result = new StringBuilder();
+        if (name != null && name.length() > 0) {
+            // 将第一个字符处理成大写
+            result.append(name.substring(0, 1).toLowerCase());
+            // 循环处理其余字符
+            for (int i = 1; i < name.length(); i++) {
+                String s = name.substring(i, i + 1);
+                // 在大写字母前添加下划线
+                if (s.equals(s.toUpperCase()) && !Character.isDigit(s.charAt(0))) {
+                    result.append("_");
+                }
+                // 其他字符直接转成大写
+                result.append(s.toLowerCase());
+            }
+        }
+        return result.toString();
+    }
+
+
+
+
+    /**
+     * 下划线风格转小驼峰
+     *
+     * @param st
+     * @return
+     */
+    public static String underlineToSmallHump(String st) {
+        return bigToLow(underlineToHump(st));
+    }
+
+    /**
+     * 下划线风格转大驼峰
+     *
+     * @param st
+     * @return
+     */
+    public static String underlineToBigHump(String st) {
+        return lowToBig(underlineToHump(st));
     }
 
 

@@ -2,8 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
+                                    
 
 <mapper namespace="com.guojia.web.mapper.UsersMapper}">
     <select id="findAll" resultType="com.guojia.web.domain.UsersDomain">
@@ -14,33 +13,41 @@
     <select id="findId" resultType="com.guojia.web.domain.UsersDomain">
         select *
         from TemplateDiy
-        where   template_id = #{templateId}
+            where   template_id = #{templateId}
     </select>
 
     <delete id="delDataId">
-        DELETE TemplateDiy WHEN template_id=#{templateId}
+        DELETE TemplateDiy WHEN template_id = #{templateId}
     </delete>
 
-
-
-
     <insert id="insertData">
-        INSERT INTO TemplateDiy(
-)values(
- )
-
+        INSERT
+            INTO TemplateDiy
+                SET
+                        path = #{path},
+                        template_name = #{templateName},
+                        create_time = #{createTime},
+                        template_content = #{templateContent},
+                        author = #{author},
+                        package_name = #{packageName},
+                        extension_name = #{extensionName},
+                        prefix_default = #{prefixDefault},
+                        template_type = #{templateType}
     </insert>
 
 
     <update id="updateData">
         UPDATE TemplateDiy
-        SET (
-                ${item.value.get(2)}
-                ${item.value.get(0)}
-                ${item.value.get(2)}
-                ${item.value.get(0)}
-                ${item.value.get(2)}
-                ${item.value.get(0)}
+            SET (
+                    path = #{path},
+                    template_name = #{templateName},
+                    create_time = #{createTime},
+                    template_content = #{templateContent},
+                    author = #{author},
+                    package_name = #{packageName},
+                    extension_name = #{extensionName},
+                    prefix_default = #{prefixDefault},
+                    template_type = #{templateType}
 )
         where   template_id = #{templateId}
     </update>

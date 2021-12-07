@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
  * @email liuwei412552703@163.com
  * @date 2021/11/16 18:37
  */
-@TableName("\"Dependencies\"")
+@TableName("\"dependencies\"")
 public class DependenciesDomain {
 
     @TableId
