@@ -8,10 +8,10 @@
 		<version>2.5.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.gj</groupId>
-	<artifactId>AAA</artifactId>
+	<groupId>GroupId</groupId>
+	<artifactId>ArtifactId</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JiaGuo</name>
+	<name>Name</name>
 	<description>Description</description>
 	<properties>
 		<java.version>11</java.version>

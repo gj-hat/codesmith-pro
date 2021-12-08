@@ -1,7 +1,7 @@
 package com.testcase.utils;
 
 import com.autogen.code.Constants;
-import com.autogen.code.utils.ZipUtils;
+import com.autogen.code.utils.FileUtils;
 import org.junit.Test;
 
 /**
@@ -23,7 +23,7 @@ public class ZipUtilsTest {
     @Test
     public void test1() throws Exception {
 
-        ZipUtils.decompressionToZip(Constants.DOWN_PATH, Constants.DECOMPRESSION);
+        FileUtils.decompressionToZip(Constants.DOWN_PATH, Constants.DECOMPRESSION);
 
 
 

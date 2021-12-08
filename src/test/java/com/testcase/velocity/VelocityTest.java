@@ -2,8 +2,8 @@ package com.testcase.velocity;
 
 import com.autogen.code.utils.AnalysisSQL;
 import com.autogen.code.utils.DataHandle;
+import com.autogen.code.utils.FileUtils;
 import com.autogen.code.utils.GenUtils;
-import com.autogen.code.utils.MkdirFolder;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -165,7 +165,7 @@ public class VelocityTest {
         data.put("username", username);
         data.put("password", password);
 
-        MkdirFolder.mkdirFolder("BaseDir", "com.gj.AAA");
+        FileUtils.injectionFolder("BaseDir", "com.gj.AAA");
 
         List<String> templates = new ArrayList<>();
         templates.add("vms/application.yml");

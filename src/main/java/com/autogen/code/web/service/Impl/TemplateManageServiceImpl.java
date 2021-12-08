@@ -2,6 +2,7 @@ package com.autogen.code.web.service.Impl;
 
 import com.autogen.code.Constants;
 import com.autogen.code.web.domain.TemplateManageDomain;
+import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
 import com.autogen.code.web.domain.vo.TemplateManageVo;
 import com.autogen.code.web.mapper.TemplateManageMapper;
 import com.autogen.code.web.service.TemplateManageService;
@@ -11,6 +12,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author     ：JiaGuo
@@ -36,6 +39,12 @@ public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper
         templateVo.setTemplateManageDomainList(page.getRecords());
         return templateVo;
     }
+
+    @Override
+    public List<ManageDiyUnionQueryVO> manageDiyUnionQueryById(int id) {
+        return templateManageMapper.manageDiyUnionQueryById(id);
+    }
+
     @Override
     public TemplateManageVo findNotAllPaging(int pageNum) {
         TemplateManageVo templateVo = new TemplateManageVo();

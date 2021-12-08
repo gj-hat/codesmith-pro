@@ -3,17 +3,35 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.autogen.code.web.mapper.TemplateManageMapper">
-<!--    <select id="findAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">-->
-<!--        select * from TemplateManage-->
-<!--    </select>-->
+
+    <resultMap type="com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO" id="ManageDiyUnionQueryVO">
+        <!-- 用result属性来映射非主键字段 -->
+        <result property="manageTemplateName" column="manage_name"/>
+        <result property="diyTemplateName" column="diy_name"/>
+        <result property="diyTemplateContent" column="diy_content"/>
+        <result property="diyExtensionName" column="diy_extension"/>
+        <result property="diyPrefixDefault" column="diy_prefix"/>
+    </resultMap>
+
+
+    <select id="manageDiyUnionQueryById" resultMap="ManageDiyUnionQueryVO">
+        select
+               m.template_name as manage_name, d.template_name as diy_name,d.template_content as diy_content,d.extension_name as diy_extension,d.prefix_default as diy_prefix
+        from template_manage as m , template_diy as d
+        where m.template_id =#{id} and d.belong =#{id}
+    </select>
+
+
+    <select id="findId" resultType="com.autogen.code.web.domain.TemplateManageDomain">
+        select * from TemplateManage where "template_id" = #{templateId}
+    </select>
+
+
 
 <!--    <select id="findNotAll" resultType="com.autogen.code.web.domain.TemplateManageDomain">-->
 <!--        select * from TemplateManage where "delMark" = false-->
 <!--    </select>-->
 
-<!--    <select id="findId" resultType="com.autogen.code.web.domain.TemplateManageDomain">-->
-<!--        select * from TemplateManage where "templateId" = #{templateId}-->
-<!--    </select>-->
 
 <!--    <insert id="insertData">-->
 <!--        INSERT INTO TemplateManage (-->
