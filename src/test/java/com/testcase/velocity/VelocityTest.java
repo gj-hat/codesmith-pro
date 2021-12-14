@@ -176,7 +176,7 @@ public class VelocityTest {
         templates.add("vms/mybatis-mapper.java");
         templates.add("vms/mybatis-domain.java");
 
-        GenUtils.generatorCode(data, templates, "UserInfo", rootPath);
+//        GenUtils.generatorCode(data, templates, "UserInfo", rootPath);
 
 
 

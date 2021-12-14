@@ -13,7 +13,7 @@ import lombok.Data;
 public class RequestParameterDto {
     //-----------DataSources---------------------------
     private String url;
-    private String drive;
+    private String driver;
     private String username;
     private String password;
     // ----------SpringBoot-----------------
@@ -28,6 +28,8 @@ public class RequestParameterDto {
     private String packageing;
     private String javaVersion;
     private String dependencies;
+    private String templates;
+
 
 
 
@@ -50,8 +52,30 @@ public class RequestParameterDto {
 
     public String dataSourcesToString() {
         return  "url=" + url  +
-                "&drive=" + drive  +
+                "&drive=" + driver  +
                 "&username=" + username  +
                 "&password=" + password ;
+    }
+
+
+    @Override
+    public String toString() {
+        return "RequestParameterDto{" +
+                "url='" + url + '\'' +
+                ", drive='" + driver + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", type='" + type + '\'' +
+                ", language='" + language + '\'' +
+                ", bootVersion='" + bootVersion + '\'' +
+                ", groupId='" + groupId + '\'' +
+                ", artifactId='" + artifactId + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", packageName='" + packageName + '\'' +
+                ", packageing='" + packageing + '\'' +
+                ", javaVersion='" + javaVersion + '\'' +
+                ", dependencies='" + dependencies + '\'' +
+                '}';
     }
 }

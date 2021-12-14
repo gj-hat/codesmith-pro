@@ -1,5 +1,6 @@
 package com.autogen.code.web.domain.vo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 /**
@@ -14,18 +15,13 @@ public class ManageDiyUnionQueryVO {
 
 
     //-----------------TemplateManage----------------------------
-    private String manageTemplateName;
+    private String manageName;
+    private String manageAuthor;
+
     //----------------TemplateDiy------------------------------------------
-    private String diyTemplateName;
-    private String diyTemplateContent;
-    private String diyExtensionName;
-    private String diyPrefixDefault;
-
-
-
-
-
-
-
+    private String diyName;
+    private String diyContent;
+    private String diyExtension;
+    private String diyPrefix;
 
 }

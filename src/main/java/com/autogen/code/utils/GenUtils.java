@@ -1,21 +1,16 @@
 package com.autogen.code.utils;
 
 import com.autogen.code.Constants;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
+import com.autogen.code.web.controller.dto.RequestParameterDto;
+import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
+import org.apache.velocity.app.VelocityEngine;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.List;
+import java.io.*;
 import java.util.Map;
 import java.util.Properties;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 /**
  * @author ：JiaGuo
@@ -27,85 +22,69 @@ import java.util.zip.ZipOutputStream;
 public class GenUtils {
 
 
-
     /**
-     * @param data      传入的数据
-     * @param templates 模板库
-     * @param tableName 表名  处理后的java大驼峰
-     * @param rootPath  项目根目录
+     * @param data                  模板参数
+     * @param template              模板名
+     * @param requestParameterDto   请求参数实体
+     * @param manageDiyUnionQueryVO 多表查询参数
      */
-    public static void generatorCode(Map<String, Object> data, List<String> templates, String tableName, String rootPath) {
-
-
-        if (rootPath.charAt(rootPath.length() - 2) == '/') {
-            rootPath = rootPath.substring(0, rootPath.length() - 1);
-        }
-        // 1. 设置资源加载器
-        Properties prop = new Properties();
-        prop.put("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
-        // 2. 初始化Velocity引擎
-        Velocity.init(prop);
-        // 3. 创建Velocity容器    并存入容器中
-        VelocityContext velocityContext = new VelocityContext(data);
-
-        // 4. 加载Velocity模版文件  遍历每一个模板
-        for (String template : templates) {
-            // 4. 加载Velocity模版文件
-            Template tpl = Velocity.getTemplate(template, "utf-8");
-            try {
-                // 5. 合并数据到模版   新生成一个文件
-                FileWriter fw = null;
-
-                String outPath = getFileName(template, tableName, (String) data.get("package"));
-                assert outPath != null;
-                fw = new FileWriter(outPath);
-
-                tpl.merge(velocityContext, fw);
-                // 6. 释放资源
-                fw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public static void generatorCode(Map<String, Object> data, String template, RequestParameterDto requestParameterDto, ManageDiyUnionQueryVO manageDiyUnionQueryVO,String tableName) {
+        try {
+            FileWriter fileWriter = new FileWriter(Constants.TEMPLATE_FILE+"velocity.vm");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write(template);
+            bufferedWriter.close();
+            Properties prop = new Properties();
+            prop.setProperty(VelocityEngine.FILE_RESOURCE_LOADER_PATH, Constants.TEMPLATE_FILE);
+            Velocity.init(prop);
+            VelocityContext velocityContext = new VelocityContext(data);
+            Template tp = Velocity.getTemplate("velocity.vm", "utf-8");
+            String outPath = getFileName(requestParameterDto.getArtifactId(), requestParameterDto.getPackageName(), manageDiyUnionQueryVO.getDiyName(), manageDiyUnionQueryVO.getDiyPrefix(),tableName);
+            assert outPath != null;
+            FileWriter fw = new FileWriter(outPath);
+            tp.merge(velocityContext, fw);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
 
     /**
-     * 返回模板的路径字符串
+     * 返回模板的路径
      *
-     * @param template    模板名 templateDiy的模板名
-     * @param tableName   表名  转化过java风格的数据库结构表名 即大驼峰
-     * @param packageName 包名 小数点格式
-     * @return
+     * @param artifactId   参数类的对应属性
+     * @param packageName  参数类的对应属性
+     * @param templateName 模板参数的模板名 manageName
+     * @param preFix       模板参数的前缀   diyPrefix
+     * @return 返回模板的路径
      */
-    public static String getFileName(String template, String tableName, String packageName) {
+    public static String getFileName(String artifactId, String packageName, String templateName, String preFix, String tableName) {
+        String classPrefix = Constants.DECOMPRESSION + artifactId + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + DataHandle.pointToSlash(packageName) + File.separator;
+        String configPrefix = Constants.DECOMPRESSION +artifactId;
 
-        String classPrefix = Constants.PREFIX_PATH + "java";
-        String configPrefix = Constants.PREFIX_PATH + "resources";
-        // 包中的点换成斜线
-        if (StringUtils.isNoneEmpty(packageName)) {
-            packageName = DataHandle.pointToSlash(packageName);
-        }
-        switch (template) {
-            case "vms/application.yml":
-                return configPrefix + File.separator + "application.yml";
-            case "vms/controller.java":
-                return classPrefix + File.separator + packageName + File.separator + "controller" + File.separator + DataHandle.lowToBig(tableName) + "Controller.java";
-            case "vms/mybatis-domain.java":
-            case "vms/mybatisPlus-domain.java":
-                return classPrefix + File.separator + packageName + File.separator + "domain" + File.separator + DataHandle.lowToBig(tableName) + "Domain.java";
-            case "vms/mybatis-service.java":
-            case "vms/mybatisPlus-service.java":
-                return classPrefix + File.separator + packageName + File.separator + "service" + File.separator + DataHandle.lowToBig(tableName) + "Service.java";
-            case "vms/mybatis-serviceImpl.java":
-            case "vms/mybatisPlus-serviceImpl.java":
-                return classPrefix + File.separator + packageName + File.separator + "service" + File.separator + "impl" + File.separator + DataHandle.lowToBig(tableName) + "ServiceImpl.java";
-            case "vms/mybatis-mapper.java":
-            case "vms/mybatisPlus-mapper.java":
-                return classPrefix + File.separator + packageName + File.separator + "mapper" + File.separator + DataHandle.lowToBig(tableName) + "Mapper.java";
-            case "vms/mybatis-mapper.xml":
-            case "vms/mybatisPlus-mapper.xml":
-                return configPrefix + File.separator + "mapper" + File.separator + DataHandle.lowToBig(tableName) + "Mapper.yml";
+        switch (templateName) {
+            // FIXME: 2021/12/9     文件名
+            case "mybatis-mapper.java":
+            case "mybatisPlus-mapper.java":
+                return classPrefix + preFix +tableName+"Mapper.java";
+            case "mybatis-serviceImpl.java":
+            case "mybatisPlus-serviceImpl.java":
+                return classPrefix + preFix +tableName+"ServiceImpl.java";
+            case "mybatis-domain.java":
+            case "mybatisPlus-mysql-domain.java":
+            case "mybatisPlus-postgresql-domain.java":
+                return classPrefix + preFix +tableName+"Domain.java";
+            case "mybatis-service.java":
+            case "mybatisPlus-service.java":
+                return classPrefix + preFix +tableName+"Service.java";
+            case "controller.java":
+                return classPrefix + preFix +tableName+"Controller.java";
+            case "mybatisPlus-mapper.xml":
+            case "mybatis-mapper.xml":
+                return configPrefix + preFix + tableName+"Mapper.xml";
+            case "application.yml":
+                return configPrefix + File.separator + preFix + "application.yml";
         }
         return null;
     }

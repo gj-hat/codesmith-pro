@@ -16,30 +16,33 @@ import java.util.Map;
 public class AnalysisSQL {
 
 
+
     /**
-     *
-     * @param url          数据库url
-     * @param driver       数据库驱动名
-     * @param username     数据库用户名
-     * @param password     数据库密码
-     * @return             Map<String,Map<String,List<String>>>    数据库结构map：键:表名 值:表结构map。 表结构map：键：字段名  值：字段属性List
+     * @param url      数据库url
+     * @param driver   数据库驱动名
+     * @param username 数据库用户名
+     * @param password 数据库密码
+     * @return Map<String, Map < String, List < String>>>    数据库结构map：键:表名 值:表结构map。 表结构map：键：字段名  值：字段属性List
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static Map<String,Map<String,List<String>>> analysisSqlStruct(String url, String driver, String username, String password) throws ClassNotFoundException, SQLException {
+
+
+    public static Map<String, Map<String, List<String>>> analysisSqlStruct(String url, String driver, String username, String password) throws ClassNotFoundException, SQLException {
 
         String keyColumn = null;
         String columnName;
         String tableName;
         String isNull;
         String isPriKey;
+
         Class.forName(driver);
         Connection connection = DriverManager.getConnection(url, username, password);
         DatabaseMetaData metaData = connection.getMetaData();
         ResultSet tablesRes = metaData.getTables(connection.getCatalog(), null, "%", new String[]{"TABLE"});
 
         // map<String  表名, Map<String 列名, List<列属性(比如列的数据类型,主键, 自增......)> >  >
-        Map<String,Map<String,List<String>>> tables = new HashMap<>();
+        Map<String, Map<String, List<String>>> tables = new HashMap<>();
 
         // 获取表
         // connection.getCatalog() = 链接的数据库名 = testMysql
@@ -55,6 +58,7 @@ public class AnalysisSQL {
             ResultSet primaryKeys = metaData.getPrimaryKeys(connection.getCatalog(), null, tableName);
             while (primaryKeys.next()) {
                 keyColumn = primaryKeys.getString("COLUMN_NAME");
+
             }
             while (columns.next()) {
                 List<String> attribute = new ArrayList<String>();
@@ -65,15 +69,16 @@ public class AnalysisSQL {
                     isNull = "notNull";
                 } else isNull = "null";
                 columnName = columns.getString("COLUMN_NAME");
-//                attribute.add(columns.getString("COLUMN_NAME"));
                 attribute.add(columns.getString("TYPE_NAME"));
                 attribute.add(columns.getString("COLUMN_SIZE"));
                 attribute.add(isPriKey);
                 attribute.add(isNull);
                 tableNameAndAttribute.put(columnName, attribute);
+
             }
             tables.put(tableName, tableNameAndAttribute);
         }
         return tables;
+
     }
 }

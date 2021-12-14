@@ -1,5 +1,7 @@
 package com.autogen.code.utils;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -148,11 +150,15 @@ public class DataHandle {
      * @return 小驼峰字符串
      */
     public static String bigToLow(String st) {
-        char[] stArr = st.toCharArray();
-        if ((stArr[0] >= 65) && (stArr[0] <= 90)) {
-            stArr[0] += 32;
+        if (StringUtils.isNoneEmpty(st)) {
+
+            char[] stArr = st.toCharArray();
+            if ((stArr[0] >= 65) && (stArr[0] <= 90)) {
+                stArr[0] += 32;
+            }
+            return String.valueOf(stArr);
         }
-        return String.valueOf(stArr);
+        return null;
     }
 
 
@@ -233,8 +239,6 @@ public class DataHandle {
     }
 
 
-
-
     /**
      * 下划线风格转小驼峰
      *
@@ -242,7 +246,11 @@ public class DataHandle {
      * @return
      */
     public static String underlineToSmallHump(String st) {
-        return bigToLow(underlineToHump(st));
+        if (StringUtils.isNoneEmpty(st)) {
+            return bigToLow(underlineToHump(st));
+
+        }
+        return null;
     }
 
     /**

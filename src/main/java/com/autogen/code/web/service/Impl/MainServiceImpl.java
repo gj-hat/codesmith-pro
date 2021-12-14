@@ -1,15 +1,21 @@
 package com.autogen.code.web.service.Impl;
 
 import com.autogen.code.Constants;
-import com.autogen.code.utils.RestTemplateUtils;
-import com.autogen.code.utils.FileUtils;
+import com.autogen.code.utils.*;
 import com.autogen.code.web.controller.dto.RequestParameterDto;
+import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
 import com.autogen.code.web.service.MainService;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author ：JiaGuo
@@ -21,15 +27,15 @@ import java.io.IOException;
 @Service
 public class MainServiceImpl implements MainService {
 
-
     @Override
     public Boolean downZip(RequestParameterDto requestParameterDto) {
 
         String rootUrl = "https://start.springboot.io/starter.zip?";
-        System.out.println("dataSourcesToString = " + requestParameterDto.dataSourcesToString());
+        // 排除mybatisplus
+        // TODO: 2021/12/9
 
         String url = rootUrl + requestParameterDto.springBootRequestToString();
-        System.out.println("url = " + url);
+        url = url.replace(",mybatis-plus","");
         ResponseEntity<byte[]> entity = RestTemplateUtils.get(url, byte[].class);
         byte[] body = entity.getBody();
 
@@ -48,38 +54,138 @@ public class MainServiceImpl implements MainService {
 
     /**
      * 解压 注入相关基础文件夹
-     * @param artifactId   项目BaseDir
-     * @param packageName  包名  小数点
+     *
+     * @param artifactId  项目BaseDir
+     * @param packageName 包名  小数点
      */
     @Override
     public boolean handleZip(String artifactId, String packageName) {
+
+        // 删除之前的文件夹
+        FileUtils.delAllFile(Constants.DECOMPRESSION);
+
+
         String sourcePath = Constants.DOWN_PATH + artifactId + ".zip";
         String targetPath = Constants.DECOMPRESSION;
         FileUtils.decompressionToZip(sourcePath, targetPath);
         FileUtils.injectionFolder(artifactId, packageName);
+
+        // 删除自带的application.properties
+        FileUtils.deleteFile(Constants.DECOMPRESSION + artifactId + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "application.properties");
         return true;
     }
 
+    /**
+     * 调用Velocity给模板中写入文件
+     *
+     * @param requestParameterDto    请求参数实体
+     * @param manageDiyUnionQueryVOS 多表查询结果
+     */
+    @Override
+    public Boolean analysisAndWrite(RequestParameterDto requestParameterDto, List<ManageDiyUnionQueryVO> manageDiyUnionQueryVOS) throws SQLException, ClassNotFoundException {
 
 
+        Map<String, Map<String, List<String>>> stringMap = AnalysisSQL.analysisSqlStruct(requestParameterDto.getUrl(), requestParameterDto.getDriver(), requestParameterDto.getUsername(), requestParameterDto.getPassword());
+        Map<String, Map<String, List<String>>> map = new HashMap<>();
+        // map 是符合java风格的sql结构
+        if (requestParameterDto.getDependencies().contains("postgresql")) {
+            map = DataHandle.sqlStructToJavaStruct(stringMap, "postgresql");
+        } else if (requestParameterDto.getDependencies().contains("mysql")) {
+            map = DataHandle.sqlStructToJavaStruct(stringMap, "mysql");
+        }
+        Map<String, Object> data = new HashMap<>();
+        data.put("DataHandle", DataHandle.class);
+        data.put("package", requestParameterDto.getPackageName());
+        for (ManageDiyUnionQueryVO mdu : manageDiyUnionQueryVOS) {
+            if (mdu.getDiyName().equals("mybatis-mapper.xml")) {
+                for (Map.Entry<String, Map<String, List<String>>> entry : stringMap.entrySet()) {
+                    data.put("TableName", DataHandle.underlineToBigHump(entry.getKey()));
+                    data.put("underLineTableAttribute", entry.getValue());
+                    data.put("underLineTableName", entry.getKey());
+                    for (Map.Entry<String, List<String>> entry1 : entry.getValue().entrySet()) {
+                        if (entry1.getValue().get(2).equals("isPriKey")) {
+                            data.put("underLinePriKey", entry1.getKey());
+                            break;
+                        }
+                    }
+                    GenUtils.generatorCode(data, mdu.getDiyContent(), requestParameterDto, mdu, DataHandle.underlineToBigHump(entry.getKey()));
+                }
+            } else if (mdu.getDiyName().equals("application.yml")) {
+                data.put("url", requestParameterDto.getUrl());
+                data.put("driver", requestParameterDto.getDriver());
+                data.put("username", requestParameterDto.getUsername());
+                data.put("password", requestParameterDto.getPassword());
+                GenUtils.generatorCode(data, mdu.getDiyContent(), requestParameterDto, mdu, "application");
+
+            } else {
+                for (Map.Entry<String, Map<String, List<String>>> entry : map.entrySet()) {
+                    data.put("TableName", entry.getKey());
+                    data.put("tableAttribute", entry.getValue());
+                    GenUtils.generatorCode(data, mdu.getDiyContent(), requestParameterDto, mdu, entry.getKey());
+                }
+            }
+        }
+
+        FileUtils.compressToZip(Constants.DECOMPRESSION + requestParameterDto.getArtifactId(), Constants.COMPRESS, requestParameterDto.getArtifactId() + ".zip");
 
 
+        return true;
+    }
+
+    @Override
+    public ResponseEntity<Object> downloadZip(RequestParameterDto requestParameterDto) {
+        File file = new File(Constants.COMPRESS + requestParameterDto.getArtifactId() + ".zip");
+        InputStreamResource resource = null;
+        try {
+            resource = new InputStreamResource( new FileInputStream( file ) );
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add ( "Content-Disposition",String.format("attachment;filename=\"%s",requestParameterDto.getArtifactId())+".zip");
+        headers.add ( "Cache-Control","no-cache,no-store,must-revalidate" );
+        headers.add ( "Pragma","no-cache" );
+        headers.add ( "Expires","0" );
+
+        return ResponseEntity.ok()
+                .headers ( headers )
+                .contentLength ( file.length ())
+                .contentType(MediaType.parseMediaType ( "application/octet-stream" ))
+                .body(resource);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>codeGen</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+            crossorigin="anonymous"></script>
+
+
+    <script src="js/indexJs.js"></script>
+
+    <link rel="stylesheet" href="css/indexCss.css"/>
+
+</head>
+<body>
+
+<div class="row" style="z-index: 0;margin-bottom: 300px">
+    <div class="col-sm-2"></div>
+    <form class="form-horizontal" method="GET" action="http://127.0.0.1:8080/main/requestParameter" autocomplete='off'>
+        <div class="col-sm-8">
+            <div class="row">
+                <p class="majFontStyle" style="font-size:25px;font-family: 'Inziu Iosevka SC',system-ui">SpringBoot
+                    Config</p>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" class="byLineFontStyle"
+                       style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">Project</p>
+                </div>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+                        <input type="radio" value="maven-project" checked name="type"> Maven Project
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="gradle-project" disabled name="type"> Gradle Project
+                    </label>
+
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        Language</p>
+                </div>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+                        <input type="radio" value="java" checked name="language"> Java
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="kotlin" disabled name="language"> Kotlin
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="groovy" disabled name="language"> Groovy
+                    </label>
+
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        SpringBoot Version</p>
+                </div>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.6.2-SNAPSHOT"> 2.6.2(SNAPSHOT)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.6.1"> 2.6.1
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.5.8-SNAPSHOT"> 2.5.8(SNAPSHOT)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.5.7"> 2.5.7
+                    </label>
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        Group</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="com.example" name="groupId">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        Artifact</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="demo" name="artifactId">
+                </div>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        name</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="demo" name="name">
+                </div>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        Description</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Demo project for Spring Boot"
+                           name="description">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        package Name</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="com.example.demo" name="packageName">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        packinging</p>
+                </div>
+                <div class="col-sm-10">
+                    <div class="col-sm-10">
+                        <label class="radio-inline">
+                            <input type="radio" name="packageing" value="jar"> JAR
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="packageing" value="war"> WAR
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">Java
+                        Version</p>
+                </div>
+                <div class="col-sm-10">
+                    <div class="col-sm-10">
+                        <label class="radio-inline">
+                            <input type="radio" name="javaVersion" value="17"> 17
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="javaVersion" value="11"> 11
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="javaVersion" value="8"> 8
+                        </label>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                        Dependencies</p>
+                </div>
+                <div class="col-sm-10" onmouseleave="hideDepen()">
+                    <div class="col-sm-10" onmouseleave="hideDepen()">
+                        <input type="text" id="clickDependencies" class="form-control" placeholder="模板..."
+                               name="templates">
+                        <input type="text" id="selectDependencies" class="form-control" placeholder="点击搜索依赖"
+                               onclick="showAndHideDepen()">
+                        <div class="row" style="overflow:auto">
+                            <div class="col-sm-12" id="dependencies" style="display: none;height: 300px;">
+                                <ul>
+                                    #foreach($item in ${dependencies.entrySet()})
+                                        <li style="pointer-events: none; ">
+                                            <p style="font-size: 25px;color: #605e5e;">${item.key}</p>
+                                            <hr style="border-top:1px solid #aaa">
+                                        </li>
+                                        #foreach($attr in ${item.value.entrySet()})
+                                            <li><a onclick="hideTemp(); addTemp(this)">
+                                                <p1 style="font-size: medium;font-weight: bold">${attr.key}</p1>
+                                                <p class="selectSonTitleFont">${attr.value} </p>
+                                            </a>
+                                            </li>
+                                        #end
+                                    #end
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <hr style="border-top:1px solid #aaa">
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="majFontStyle" style="font-size:25px;font-family: 'Inziu Iosevka SC',system-ui">
+                            DataSources
+                            Config</p>
+                    </div>
+                </div>
+                <hr style="border-top:1px solid #aaa">
+
+
+                <div class="row form-group">
+                    <div class="col-sm-2 control-label ">
+                        <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                            url</p>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="dataSources URL" name="url">
+                    </div>
+
+                </div>
+                <hr style="border-top:1px solid #aaa">
+
+
+                <div class="row form-group">
+                    <div class="col-sm-2 control-label ">
+                        <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                            driver</p>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="dataSources Driver" name="driver">
+                    </div>
+
+                </div>
+                <hr style="border-top:1px solid #aaa">
+
+
+                <div class="row form-group">
+                    <div class="col-sm-2 control-label ">
+                        <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                            username</p>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="dataSources Username" name="username">
+                    </div>
+
+                </div>
+                <hr style="border-top:1px solid #aaa">
+
+
+                <div class="row form-group">
+                    <div class="col-sm-2 control-label ">
+                        <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                            password</p>
+                    </div>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="dataSources Passowrd" name="password">
+                    </div>
+
+                </div>
+                <hr style="border-top:1px solid #aaa">
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="majFontStyle" style="font-size:25px;font-family: 'Inziu Iosevka SC',system-ui">
+                            Template
+                            Config</p>
+                    </div>
+                </div>
+                <hr style="border-top:1px solid #aaa">
+
+
+                <div class="row form-group">
+                    <div class="col-sm-2 control-label ">
+                        <p class="byLineFontStyle" style="font-size: medium; font-family: 'Inziu Iosevka SC',system-ui">
+                            select template</p>
+                    </div>
+
+
+                    <div class="col-sm-10" onmouseleave="hideTemp()">
+                        <input type="text" id="clickTemplate" class="form-control" placeholder="模板..."
+                               name="templates">
+                        <input type="text" id="selectTemplate" class="form-control" placeholder="点击搜索模板"
+                               onclick="showAndHideTemp()">
+                        <div class="row" style="overflow:auto">
+                            <div class="col-sm-12" id="templates" style="display: none ;height: 300px;">
+
+                                <ul>
+                                    #foreach($item in ${templates.entrySet()})
+                                        <li style="pointer-events: none; ">
+                                            <p style="font-size: 25px;color: #605e5e;">${item.key}</p>
+                                            <hr style="border-top:1px solid #aaa">
+                                        </li>
+                                        #foreach($attr in ${item.value.entrySet()})
+                                            <li><a onclick="hideTemp(); addTemp(this)">
+                                                <p1 style="font-size: medium;font-weight: bold">${attr.key}</p1>
+                                                <p class="selectSonTitleFont">${attr.value} </p>
+                                            </a>
+                                            </li>
+                                        #end
+                                    #end
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr style="border-top:1px solid #aaa">
+
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3">
+                        <button type="reset" class="btn btn-default btn-lg">重置</button>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="submit" class="btn btn-lg btn-primary">提交</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </form>
+
+</div>
+
+
+</body>
+</html>
+</html>

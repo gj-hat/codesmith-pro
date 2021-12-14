@@ -26,6 +26,9 @@ import java.util.List;
 public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper, TemplateManageDomain> implements TemplateManageService {
 
 
+
+
+
     @Autowired
     TemplateManageMapper templateManageMapper;
     @Override
@@ -44,6 +47,14 @@ public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper
     public List<ManageDiyUnionQueryVO> manageDiyUnionQueryById(int id) {
         return templateManageMapper.manageDiyUnionQueryById(id);
     }
+
+    @Override
+    public List<ManageDiyUnionQueryVO> manageDiyUnionQueryByName(String name) {
+        return templateManageMapper.manageDiyUnionQueryByName(name);
+    }
+
+
+
 
     @Override
     public TemplateManageVo findNotAllPaging(int pageNum) {

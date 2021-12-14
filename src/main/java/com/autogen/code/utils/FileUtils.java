@@ -37,7 +37,7 @@ public class FileUtils {
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFile))) {
             writeZip(sourceFile, "", zos);
             //文件压缩完成后，删除被压缩文件
-            //boolean flag = deleteDir(sourceFile);
+            boolean flag = deleteDir(sourceFile);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e.getMessage(), e.getCause());
@@ -78,6 +78,16 @@ public class FileUtils {
         }
     }
 
+
+
+
+    // ---------------------------------------------删除相关------------------------------------------------------------------------------------------
+
+
+
+
+
+
     /**
      * 删除文件夹
      *
@@ -97,7 +107,56 @@ public class FileUtils {
         }
         //删除空文件夹
         return dir.delete();
+    }
 
+
+
+    /**
+     * 工具
+     * @param folderPath 文件夹完整绝对路径 ,"Z:/xuyun/save"
+     */
+    private static void delFolder(String folderPath) {
+        try {
+            delAllFile(folderPath); //删除完里面所有内容
+            String filePath = folderPath;
+            filePath = filePath.toString();
+            java.io.File myFilePath = new java.io.File(filePath);
+            myFilePath.delete(); //删除空文件夹
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * 删除指定文件夹下所有文件
+     * @param path 文件夹完整绝对路径
+     */
+    public static boolean delAllFile(String path) {
+        boolean flag = false;
+        File file = new File(path);
+        if (!file.exists()) {
+            return flag;
+        }
+        if (!file.isDirectory()) {
+            return flag;
+        }
+        String[] tempList = file.list();
+        File temp = null;
+        for (int i = 0; i < tempList.length; i++) {
+            if (path.endsWith(File.separator)) {
+                temp = new File(path + tempList[i]);
+            } else {
+                temp = new File(path + File.separator + tempList[i]);
+            }
+            if (temp.isFile()) {
+                temp.delete();
+            }
+            if (temp.isDirectory()) {
+                delAllFile(path + "/" + tempList[i]);//先删除文件夹里面的文件
+                delFolder(path + "/" + tempList[i]);//再删除空文件夹
+                flag = true;
+            }
+        }
+        return flag;
     }
 
 
@@ -111,9 +170,11 @@ public class FileUtils {
      * @param desDirectory 解压到的目录
      */
     public static void decompressionToZip(String zipFilePath, String desDirectory) {
+
+        File file1 = new File(desDirectory);
+        deleteDir(file1);
+
         try {
-
-
             File desDir = new File(desDirectory);
             if (!desDir.exists()) {
                 boolean mkdirSuccess = desDir.mkdir();
@@ -155,14 +216,14 @@ public class FileUtils {
         }
     }
 
-    private static void deleteFile(String filePath) {
-        try{
+    public static void deleteFile(String filePath) {
+        try {
             File file = new File(filePath);
-            if(!file.delete()){
+            if (!file.delete()) {
                 throw new Exception("删除失败");
             }
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -183,7 +244,7 @@ public class FileUtils {
     public static void injectionFolder(String artifactId, String packageName) {
 
         String rootPath = Constants.DECOMPRESSION + artifactId + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator;
-        File resourcesMapper = new File(rootPath + File.separator + "resources" + File.separator + "mapper" + File.separator);
+        File resourcesMapper = new File(Constants.DECOMPRESSION + artifactId + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "mapper");
         if (!resourcesMapper.exists()) {
             resourcesMapper.mkdirs();
         }

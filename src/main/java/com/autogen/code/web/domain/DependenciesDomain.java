@@ -26,6 +26,8 @@ public class DependenciesDomain {
     private String group;
 
 
+    private String sourceType;
+
     // 版本范围
     @TableField("version_range")
     private String versionRange;
@@ -82,13 +84,35 @@ public class DependenciesDomain {
         this.reference = reference;
     }
 
+    public String getSourceType() {
+        return sourceType;
+    }
+
+    public void setSourceType(String sourceType) {
+        this.sourceType = sourceType;
+    }
+
+    public DependenciesDomain() {
+    }
+
+    public DependenciesDomain(String id, String name, String description, String group, String sourceType, String versionRange, String reference) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.group = group;
+        this.sourceType = sourceType;
+        this.versionRange = versionRange;
+        this.reference = reference;
+    }
+
     @Override
     public String toString() {
         return "DependenciesDomain{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", group='" + group + '\'' +
                 ", description='" + description + '\'' +
+                ", group='" + group + '\'' +
+                ", sourceType='" + sourceType + '\'' +
                 ", versionRange='" + versionRange + '\'' +
                 ", reference='" + reference + '\'' +
                 '}';

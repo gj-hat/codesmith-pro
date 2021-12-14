@@ -1,0 +1,60 @@
+
+@font-face{
+    font-family: Inziu Iosevka SC;
+    src: local("font/inziu-iosevka-SC-regular.ttf");
+
+}
+
+
+a:link {
+    text-decoration: none; /* 指正常的未被访问过的链接*/
+}
+
+a:visited {
+    text-decoration: none; /*指已经访问过的链接*/
+}
+
+a:hover {
+    text-decoration: none; /*指鼠标在链接*/
+}
+
+a:active {
+    text-decoration: none; /* 指正在点的链接*/
+}
+
+a {
+    color: #000;
+    text-decoration: none; /* 指正在点的链接*/
+}
+
+
+li:hover {
+    background-color: #b9b9b9;
+    text-decoration: none;
+    transform: translate(-10px, -5px);
+}
+
+
+.byLineFontStyle {
+    color: #605e5e;
+}
+
+.majFontStyle {
+    color: #414040;
+}
+li {
+    list-style-type: none;
+    background: #ffffff;
+    border-radius: 10px;
+    transition: all 1s;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+.selectSonTitleFont {
+    font-size: small;
+    color: #000000;
+    font-family: 'Inziu Iosevka SC', system-ui;
+}

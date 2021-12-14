@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>codeGen</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+            crossorigin="anonymous"></script>
+
+
+
+    <script src="js/indexJs.js"></script>
+
+    <link rel="stylesheet" href="css/indexCss.css"/>
+
+</head>
+<body>
+
+<div class="row" style="z-index: 0;margin-bottom: 300px;font-family: 'Inziu Iosevka SC',system-ui">
+    <div class="col-sm-2"></div>
+    <form class="form-horizontal" method="GET" action="http://127.0.0.1:8080/main/requestParameter" autocomplete='off'>
+        <div class="col-sm-8">
+            <div class="row">
+                <p class="majFontStyle" style="font-size:25px;">SpringBoot
+                    Config</p>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" class="byLineFontStyle"
+                       style="font-size: medium; ">Project</p>
+                </div>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+
+                        <input type="radio" value="maven-project" checked name="type"> Maven Project
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="gradle-project" disabled name="type"> Gradle Project
+                    </label>
+
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        Language</p>
+                </div>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+                        <input type="radio" value="java" checked name="language"> Java
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="kotlin" disabled name="language"> Kotlin
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="groovy" disabled name="language"> Groovy
+                    </label>
+
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        SpringBoot Version</p>
+                </div>
+                <div class="col-sm-10">
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.6.2-SNAPSHOT"> 2.6.2(SNAPSHOT)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.6.1"> 2.6.1
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.5.8-SNAPSHOT"> 2.5.8(SNAPSHOT)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="bootVersion" value="2.5.7"> 2.5.7
+                    </label>
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        Group</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="com.example" name="groupId">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        Artifact</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="demo" name="artifactId">
+                </div>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        name</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="demo" name="name">
+                </div>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        Description</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Demo project for Spring Boot"
+                           name="description">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        package Name</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" value="com.example.demo" name="packageName">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        packinging</p>
+                </div>
+                <div class="col-sm-10">
+                    <div class="col-sm-10">
+                        <label class="radio-inline">
+                            <input type="radio" name="packageing" value="jar"> JAR
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="packageing" value="war"> WAR
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">Java
+                        Version</p>
+                </div>
+                <div class="col-sm-10">
+                    <div class="col-sm-10">
+                        <label class="radio-inline">
+                            <input type="radio" name="javaVersion" value="17"> 17
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="javaVersion" value="11"> 11
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="javaVersion" value="8"> 8
+                        </label>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        Dependencies</p>
+                </div>
+                <div class="col-sm-10" onmouseleave="hideDepen()">
+                    <input type="text" id="clickDependencies" class="form-control" placeholder="模板..."
+                          name="templates" disabled>
+                    <input type="text" id="selectDependencies" class="form-control" placeholder="点击搜索依赖"
+                           onclick="showAndHideDepen()" >
+                    <div class="row" style="overflow:auto">
+                        <div class="col-sm-12" id="dependencies" style="display: none;height: 300px;">
+                            <ul>
+                                <li style="pointer-events: none; ">
+                                    <p style="font-size: 25px;color: #605e5e;">WEB</p>
+                                    <hr style="border-top:1px solid #aaa">
+                                </li>
+                                <li><a id="webflux" onclick="hideDepen(); addDepen(this) ">
+                                    <p1 style="font-size: medium;font-weight: bold">webflux</p1>
+                                    <p class="selectSonTitleFont">Build reactive web applications with Spring WebFlux
+                                        and Netty.</p>
+                                </a>
+                                </li>
+                                <li><a onclick="hideDepen(); addDepen(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">data-rest</p1>
+                                    <p class="selectSonTitleFont">Exposing Spring Data repositories over REST via Spring
+                                        Data REST. </p>
+                                </a>
+                                </li>
+                                <li><a onclick="hideDepen(); addDepen(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">session</p1>
+                                    <p class="selectSonTitleFont">Provides an API and implementations for managing user
+                                        session information. </p>
+                                </a>
+                                </li>
+
+
+                                <li style="pointer-events: none; ">
+                                    <p1 style="font-size: 25px;color: #605e5e;">Security</p1>
+                                    <hr style="border-top:1px solid #aaa">
+                                </li>
+                                <li><a onclick="hideDepen(); addDepen(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">security</p1>
+                                    <p class="selectSonTitleFont">Highly customizable authentication and access-control
+                                        framework for Spring applications.</p>
+                                </a>
+                                </li>
+                                <li><a onclick="hideDepen(); addDepen(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">oauth2-client</p1>
+                                    <p class="selectSonTitleFont">Spring Boot integration for Spring Security's
+                                        OAuth2/OpenID Connect client features.</p>
+                                </a>
+                                </li>
+                                <li><a onclick="hideDepen(); addDepen(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">oauth2-resource-server</p1>
+                                    <p class="selectSonTitleFont">Spring Boot integration for Spring Security's OAuth2
+                                        resource server features.</p>
+                                </a>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="majFontStyle" style="font-size:25px;">DataSources
+                        Config</p>
+                </div>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        url</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="dataSources URL" name="url">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        driver</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="dataSources Driver" name="driver">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        username</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="dataSources Username" name="username">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        password</p>
+                </div>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="dataSources Passowrd" name="password">
+                </div>
+
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <p class="majFontStyle" style="font-size:25px;">Template
+                        Config</p>
+                </div>
+            </div>
+            <hr style="border-top:1px solid #aaa">
+
+
+            <div class="row form-group">
+                <div class="col-sm-2 control-label ">
+                    <p class="byLineFontStyle" style="font-size: medium; ">
+                        select template</p>
+                </div>
+
+
+                <div class="col-sm-10" onmouseleave="hideTemp()">
+                    <input type="text" id="clickTemplate" class="form-control" placeholder="模板..."
+                            name="templates" disabled>
+                    <input type="text" id="selectTemplate" class="form-control" placeholder="点击搜索模板"
+                           onclick="showAndHideTemp()" >
+                    <div class="row" style="overflow:auto">
+                        <div class="col-sm-12" id="templates" style="display: none ;height: 300px;">
+                            <ul>
+
+
+
+                                <li style="pointer-events: none; ">
+                                    <p style="font-size: 25px;color: #605e5e;">JiaGuo</p>
+                                    <hr style="border-top:1px solid #aaa">
+                                </li>
+                                <li><a onclick="hideTemp(); addTemp(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">mybatis-curd</p1>
+                                    <p class="selectSonTitleFont">mybatis风格 service(impl).java，mapper.java，mapper.xml</p>
+                                </a>
+                                </li>
+
+
+                                <li><a onclick="hideTemp(); addTemp(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">general-module</p1>
+                                    <p class="selectSonTitleFont">Spring通用模块（controller.java,application.yml)</p>
+                                </a>
+                                </li>
+
+                                <li><a onclick="hideTemp(); addTemp(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">mybatis-domain</p1>
+                                    <p class="selectSonTitleFont">mybatis风格domain（pg和mysql通用）</p>
+                                </a>
+                                </li>
+
+                                <li><a onclick="hideTemp(); addTemp(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">mybatisplus-curd</p1>
+                                    <p class="selectSonTitleFont">mybatisPlus风格  service，mapper，mapper.xml</p>
+                                </a>
+                                </li>
+
+                                <li><a onclick="hideTemp(); addTemp(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">mybatisplus-mysql-domain</p1>
+                                    <p class="selectSonTitleFont">mybatisPlus-mysql风格domain</p>
+                                </a>
+                                </li>
+
+                                <li><a onclick="hideTemp(); addTemp(this)">
+                                    <p1 style="font-size: medium;font-weight: bold">mybatisplus-postgresql-domain</p1>
+                                    <p class="selectSonTitleFont">mybatisPlus-postgresql风格domain</p>
+                                </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr style="border-top:1px solid #aaa">
+
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                    <button type="reset" class="btn btn-default btn-lg">重置</button>
+                </div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-lg btn-primary">提交</button>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-2"></div>
+    </form>
+
+</div>
+
+
+</body>
+</html>
+</html>
