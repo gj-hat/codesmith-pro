@@ -6,19 +6,19 @@
 
 
 
-    <select id="manageDiyUnionQueryById" resultType="com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO">
+    <select id="manageLibraryUnionQueryById" resultType="com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO">
         select
-            m.template_name as manage_name,m.template_author as manange_author, d.template_name as diy_name,d.template_content as diy_content,d.extension_name as diy_extension,d.prefix_default as diy_prefix
-        from template_manage as m , template_diy as d
+            m.template_name as manage_name,m.template_author as manange_author, d.template_name as library_name,d.template_content as library_content,d.extension_name as library_extension,d.prefix_default as library_prefix
+        from template_manage as m , template_library as d
         where m.template_id =#{id} and d.belong =#{id}
     </select>
 
 
 
-    <select id="manageDiyUnionQueryByName" resultType="com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO">
+    <select id="manageLibraryUnionQueryByName" resultType="com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO">
         select
-            m.template_name as manage_name,m.template_author as manage_author, d.template_name as diy_name,d.template_content as diy_content,d.extension_name as diy_extension,d.prefix_default as diy_prefix
-        from template_manage as m , template_diy as d
+            m.template_name as manage_name,m.template_author as manage_author, d.template_name as library_name,d.template_content as library_content,d.extension_name as library_extension,d.prefix_default as library_prefix
+        from template_manage as m , template_library as d
         where  m.template_id =(SELECT template_id
                                FROM template_manage
                                WHERE template_name = #{name}

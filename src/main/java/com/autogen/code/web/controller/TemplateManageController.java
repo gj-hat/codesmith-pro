@@ -4,7 +4,7 @@ package com.autogen.code.web.controller;
 import com.autogen.code.utils.RestTemplateUtils;
 import com.autogen.code.web.domain.vo.BaseTemplateVo;
 import com.autogen.code.web.domain.TemplateManageDomain;
-import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
+import com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO;
 import com.autogen.code.web.service.Impl.TemplateManageServiceImpl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
@@ -32,10 +32,10 @@ public class TemplateManageController {
 
 
     @RequestMapping("/idList")
-    public List<ManageDiyUnionQueryVO> findById(int id) {
+    public List<ManageLibraryUnionQueryVO> findById(int id) {
 
 
-        return templateManageService.manageDiyUnionQueryById(id);
+        return templateManageService.manageLibraryUnionQueryById(id);
     }
 
     @RequestMapping("/findAll")

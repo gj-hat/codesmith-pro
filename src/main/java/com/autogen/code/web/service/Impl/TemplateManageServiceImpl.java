@@ -2,7 +2,7 @@ package com.autogen.code.web.service.Impl;
 
 import com.autogen.code.Constants;
 import com.autogen.code.web.domain.TemplateManageDomain;
-import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
+import com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO;
 import com.autogen.code.web.domain.vo.TemplateManageVo;
 import com.autogen.code.web.mapper.TemplateManageMapper;
 import com.autogen.code.web.service.TemplateManageService;
@@ -44,13 +44,13 @@ public class TemplateManageServiceImpl  extends ServiceImpl<TemplateManageMapper
     }
 
     @Override
-    public List<ManageDiyUnionQueryVO> manageDiyUnionQueryById(int id) {
-        return templateManageMapper.manageDiyUnionQueryById(id);
+    public List<ManageLibraryUnionQueryVO> manageLibraryUnionQueryById(int id) {
+        return templateManageMapper.manageLibraryUnionQueryById(id);
     }
 
     @Override
-    public List<ManageDiyUnionQueryVO> manageDiyUnionQueryByName(String name) {
-        return templateManageMapper.manageDiyUnionQueryByName(name);
+    public List<ManageLibraryUnionQueryVO> manageLibraryUnionQueryByName(String name) {
+        return templateManageMapper.manageLibraryUnionQueryByName(name);
     }
 
 

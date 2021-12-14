@@ -3,7 +3,7 @@ package com.autogen.code.web.service.Impl;
 import com.autogen.code.Constants;
 import com.autogen.code.utils.*;
 import com.autogen.code.web.controller.dto.RequestParameterDto;
-import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
+import com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO;
 import com.autogen.code.web.service.MainService;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -76,10 +76,10 @@ public class MainServiceImpl implements MainService {
      * 调用Velocity给模板中写入文件
      *
      * @param requestParameterDto    请求参数实体
-     * @param manageDiyUnionQueryVOS 多表查询结果
+     * @param manageLibraryUnionQueryVOS 多表查询结果
      */
     @Override
-    public Boolean analysisAndWrite(RequestParameterDto requestParameterDto, List<ManageDiyUnionQueryVO> manageDiyUnionQueryVOS) throws SQLException, ClassNotFoundException {
+    public Boolean analysisAndWrite(RequestParameterDto requestParameterDto, List<ManageLibraryUnionQueryVO> manageLibraryUnionQueryVOS) throws SQLException, ClassNotFoundException {
 
 
         Map<String, Map<String, List<String>>> stringMap = AnalysisSQL.analysisSqlStruct(requestParameterDto.getUrl(), requestParameterDto.getDriver(), requestParameterDto.getUsername(), requestParameterDto.getPassword());
@@ -93,8 +93,8 @@ public class MainServiceImpl implements MainService {
         Map<String, Object> data = new HashMap<>();
         data.put("DataHandle", DataHandle.class);
         data.put("package", requestParameterDto.getPackageName());
-        for (ManageDiyUnionQueryVO mdu : manageDiyUnionQueryVOS) {
-            if (mdu.getDiyName().equals("mybatis-mapper.xml")) {
+        for (ManageLibraryUnionQueryVO mdu : manageLibraryUnionQueryVOS) {
+            if (mdu.getLibraryName().equals("mybatis-mapper.xml")) {
                 for (Map.Entry<String, Map<String, List<String>>> entry : stringMap.entrySet()) {
                     data.put("TableName", DataHandle.underlineToBigHump(entry.getKey()));
                     data.put("underLineTableAttribute", entry.getValue());
@@ -105,20 +105,20 @@ public class MainServiceImpl implements MainService {
                             break;
                         }
                     }
-                    GenUtils.generatorCode(data, mdu.getDiyContent(), requestParameterDto, mdu, DataHandle.underlineToBigHump(entry.getKey()));
+                    GenUtils.generatorCode(data, mdu.getLibraryContent(), requestParameterDto, mdu, DataHandle.underlineToBigHump(entry.getKey()));
                 }
-            } else if (mdu.getDiyName().equals("application.yml")) {
+            } else if (mdu.getLibraryName().equals("application.yml")) {
                 data.put("url", requestParameterDto.getUrl());
                 data.put("driver", requestParameterDto.getDriver());
                 data.put("username", requestParameterDto.getUsername());
                 data.put("password", requestParameterDto.getPassword());
-                GenUtils.generatorCode(data, mdu.getDiyContent(), requestParameterDto, mdu, "application");
+                GenUtils.generatorCode(data, mdu.getLibraryContent(), requestParameterDto, mdu, "application");
 
             } else {
                 for (Map.Entry<String, Map<String, List<String>>> entry : map.entrySet()) {
                     data.put("TableName", entry.getKey());
                     data.put("tableAttribute", entry.getValue());
-                    GenUtils.generatorCode(data, mdu.getDiyContent(), requestParameterDto, mdu, entry.getKey());
+                    GenUtils.generatorCode(data, mdu.getLibraryContent(), requestParameterDto, mdu, entry.getKey());
                 }
             }
         }

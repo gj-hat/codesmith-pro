@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 /**
  * @author ：JiaGuo
  * @date ：Created in 2021/11/13 14:53
- * @description：实现 TemplateDiy
+ * @description：实现 TemplateLibrary
  * @modified By：
  * @version: 1.0
  */
@@ -23,23 +23,6 @@ public class DependenciesServiceImpl extends ServiceImpl<DependenciesMapper, Dep
 
     @Autowired
     DependenciesMapper dependenciesMapper;
-
-
-
-
-    /**
-     *
-     * @param
-     * @return
-     */
-//    public DependenciesVo findByPaging(ReqPageParam<SpDependencyEntity> reqPageParam) {
-//        DependenciesVo templateDiyVo = new DependenciesVo();
-//        IPage<DependenciesDomain> page = new Page<>(reqPageParam.getCurrent(), reqPageParam.getPagesize());
-//        dependenciesMapper.selectPage(page, null);
-//        templateDiyVo.setTotal(page.getTotal());
-//        templateDiyVo.setDependenciesDomains(page.getRecords());
-//        return templateDiyVo;
-//    }
 
     @Override
     public DependenciesVo findByPaging(int pageNum) {

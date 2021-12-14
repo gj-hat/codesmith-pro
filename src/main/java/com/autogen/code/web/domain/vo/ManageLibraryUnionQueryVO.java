@@ -11,17 +11,17 @@ import lombok.Data;
  * @version: 1.0
  */
 @Data
-public class ManageDiyUnionQueryVO {
+public class ManageLibraryUnionQueryVO {
 
 
     //-----------------TemplateManage----------------------------
     private String manageName;
     private String manageAuthor;
 
-    //----------------TemplateDiy------------------------------------------
-    private String diyName;
-    private String diyContent;
-    private String diyExtension;
-    private String diyPrefix;
+    //----------------TemplateLibrary------------------------------------------
+    private String libraryName;
+    private String libraryContent;
+    private String libraryExtension;
+    private String libraryPrefix;
 
 }

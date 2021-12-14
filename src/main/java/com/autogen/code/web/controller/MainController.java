@@ -1,7 +1,7 @@
 package com.autogen.code.web.controller;
 
 import com.autogen.code.web.controller.dto.RequestParameterDto;
-import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
+import com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO;
 import com.autogen.code.web.service.Impl.MainServiceImpl;
 import com.autogen.code.web.service.Impl.TemplateManageServiceImpl;
 import org.apache.commons.lang3.ArrayUtils;
@@ -47,11 +47,11 @@ public class MainController {
         String templates = requestParameterDto.getTemplates();
         String[] splitTemp = templates.split(",");
 
-        List<ManageDiyUnionQueryVO> manageDiyUnionQueryVOS = new ArrayList<>();
+        List<ManageLibraryUnionQueryVO> manageLibraryUnionQueryVOS = new ArrayList<>();
         for (String st : splitTemp) {
-            manageDiyUnionQueryVOS.addAll(templateManageService.manageDiyUnionQueryByName(st));
+            manageLibraryUnionQueryVOS.addAll(templateManageService.manageLibraryUnionQueryByName(st));
         }
-        mainService.analysisAndWrite(requestParameterDto, manageDiyUnionQueryVOS);
+        mainService.analysisAndWrite(requestParameterDto, manageLibraryUnionQueryVOS);
         return mainService.downloadZip(requestParameterDto);
 
 

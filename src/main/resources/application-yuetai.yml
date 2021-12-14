@@ -13,8 +13,6 @@ spring:
       idle-timeout: 60000
       max-lifetime: 300000
 
-
-
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   configuration:
@@ -29,7 +27,6 @@ mybatis-plus:
       table-underline: true
       update-strategy: ignored
   type-aliases-package: com.autogen.code.web.domain
-
 
 
 #

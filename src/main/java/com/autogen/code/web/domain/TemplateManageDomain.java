@@ -18,6 +18,6 @@ public class TemplateManageDomain extends BaseTemplateDomain {
 
     private String templateType;
 
-    private TemplateDiyDomain templateDiyDomain;
+    private TemplateLibraryDomain templateLibraryDomain;
 
 }

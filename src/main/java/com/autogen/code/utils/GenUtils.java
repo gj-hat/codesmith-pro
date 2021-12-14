@@ -2,7 +2,7 @@ package com.autogen.code.utils;
 
 import com.autogen.code.Constants;
 import com.autogen.code.web.controller.dto.RequestParameterDto;
-import com.autogen.code.web.domain.vo.ManageDiyUnionQueryVO;
+import com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -26,9 +26,9 @@ public class GenUtils {
      * @param data                  模板参数
      * @param template              模板名
      * @param requestParameterDto   请求参数实体
-     * @param manageDiyUnionQueryVO 多表查询参数
+     * @param manageLibraryUnionQueryVO 多表查询参数
      */
-    public static void generatorCode(Map<String, Object> data, String template, RequestParameterDto requestParameterDto, ManageDiyUnionQueryVO manageDiyUnionQueryVO,String tableName) {
+    public static void generatorCode(Map<String, Object> data, String template, RequestParameterDto requestParameterDto, ManageLibraryUnionQueryVO manageLibraryUnionQueryVO,String tableName) {
         try {
             FileWriter fileWriter = new FileWriter(Constants.TEMPLATE_FILE+"velocity.vm");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -39,7 +39,7 @@ public class GenUtils {
             Velocity.init(prop);
             VelocityContext velocityContext = new VelocityContext(data);
             Template tp = Velocity.getTemplate("velocity.vm", "utf-8");
-            String outPath = getFileName(requestParameterDto.getArtifactId(), requestParameterDto.getPackageName(), manageDiyUnionQueryVO.getDiyName(), manageDiyUnionQueryVO.getDiyPrefix(),tableName);
+            String outPath = getFileName(requestParameterDto.getArtifactId(), requestParameterDto.getPackageName(), manageLibraryUnionQueryVO.getLibraryName(), manageLibraryUnionQueryVO.getLibraryPrefix(),tableName);
             assert outPath != null;
             FileWriter fw = new FileWriter(outPath);
             tp.merge(velocityContext, fw);
@@ -56,7 +56,7 @@ public class GenUtils {
      * @param artifactId   参数类的对应属性
      * @param packageName  参数类的对应属性
      * @param templateName 模板参数的模板名 manageName
-     * @param preFix       模板参数的前缀   diyPrefix
+     * @param preFix       模板参数的前缀   Template_library_Prefix
      * @return 返回模板的路径
      */
     public static String getFileName(String artifactId, String packageName, String templateName, String preFix, String tableName) {

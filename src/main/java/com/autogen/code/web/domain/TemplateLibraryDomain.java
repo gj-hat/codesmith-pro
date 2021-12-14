@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
- * templateDiy实体类
+ * templateLibrary实体类
  */
 @Data
-@TableName("\"template_diy\"")
-public class TemplateDiyDomain extends BaseTemplateDomain {
+@TableName("\"template_library\"")
+public class TemplateLibraryDomain extends BaseTemplateDomain {
 
     private String templateName;
     private String templateType;
