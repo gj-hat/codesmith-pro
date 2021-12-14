@@ -30,8 +30,8 @@ public class TemplateManageTest {
     @Test
     public void test1() {
 //        System.out.println("templateManageMapper.findId(1) = " + templateManageMapper.findId(1));
-        System.out.println(" = " + templateManageMapper.manageDiyUnionQueryById(1));
-//        System.out.println(" = " + templateManageMapper.manageDiyUnionQueryByName("mybatis-curd"));
+        System.out.println(" = " + templateManageMapper.manageLibraryUnionQueryById(1));
+//        System.out.println(" = " + templateManageMapper.manageLibraryUnionQueryByName("mybatis-curd"));
 
     }
 
@@ -39,8 +39,8 @@ public class TemplateManageTest {
     @Test
     public void test2() {
 //        System.out.println("templateManageMapper.findId(1) = " + templateManageMapper.findId(1));
-        System.out.println(" = " + templateManageMapper.manageDiyUnionQueryByName("mybatis-curd"));
-//        System.out.println(" = " + templateManageMapper.manageDiyUnionQueryByName("mybatis-curd"));
+        System.out.println(" = " + templateManageMapper.manageLibraryUnionQueryByName("mybatis-curd"));
+//        System.out.println(" = " + templateManageMapper.manageLibraryUnionQueryByName("mybatis-curd"));
 
     }
 
