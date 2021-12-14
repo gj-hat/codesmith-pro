@@ -31,9 +31,6 @@ public class MainServiceImpl implements MainService {
     public Boolean downZip(RequestParameterDto requestParameterDto) {
 
         String rootUrl = "https://start.springboot.io/starter.zip?";
-        // 排除mybatisplus
-        // TODO: 2021/12/9
-
         String url = rootUrl + requestParameterDto.springBootRequestToString();
         url = url.replace(",mybatis-plus","");
         ResponseEntity<byte[]> entity = RestTemplateUtils.get(url, byte[].class);

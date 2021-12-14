@@ -64,7 +64,7 @@ public class GenUtils {
         String configPrefix = Constants.DECOMPRESSION +artifactId;
 
         switch (templateName) {
-            // FIXME: 2021/12/9     文件名
+
             case "mybatis-mapper.java":
             case "mybatisPlus-mapper.java":
                 return classPrefix + preFix +tableName+"Mapper.java";
