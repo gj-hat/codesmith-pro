@@ -16,7 +16,6 @@ public class TemplateLibraryDomain extends BaseTemplateDomain {
     private String path;
     private String extensionName;
     private String prefixDefault;
-
     private int belong;
 
 

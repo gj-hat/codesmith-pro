@@ -7,7 +7,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
 import javax.annotation.PostConstruct;
 import java.util.Map;
 
@@ -22,7 +21,9 @@ public class RestTemplateUtils {
         rtu = this;
         rtu.restTemplate = this.restTemplate;
     }
+
     // ----------------------------------GET-------------------------------------------------------
+
     /**
      * GET请求调用方式
      *

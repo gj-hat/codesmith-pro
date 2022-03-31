@@ -4,17 +4,13 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * @author Ryan
- * @email liuwei412552703@163.com
- * @date 2021/11/2 14:16
+ * @author ：JiaGuo
+ * @emil ：1520047927@qq.com
+ * @date ：Created in 2022/3/31 19:27
  */
 @ControllerAdvice
 @RestControllerAdvice
 public class GlobalExceptionAdvice {
-
-
-
-
 
 
 

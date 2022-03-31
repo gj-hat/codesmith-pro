@@ -9,13 +9,9 @@ import com.autogen.code.web.service.Impl.TemplateManageServiceImpl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
 
@@ -31,21 +27,21 @@ public class TemplateManageController {
     private RestTemplateUtils restTemplateUtils;
 
 
-    @RequestMapping("/idList")
+    @RequestMapping("/listById")
     public List<ManageLibraryUnionQueryVO> findById(int id) {
 
 
         return templateManageService.manageLibraryUnionQueryById(id);
     }
 
-    @RequestMapping("/findAll")
+    @RequestMapping("/listAll")
     public BaseTemplateVo findAll(int pageNum) {
         return templateManageService.findNotAllPaging(pageNum);
     }
 
 
 
-    @RequestMapping("/findNotAll")
+    @RequestMapping("/list")
     public BaseTemplateVo findNotAll(int pageNum) {
         QueryWrapper<TemplateManageDomain> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("del_mark", false);

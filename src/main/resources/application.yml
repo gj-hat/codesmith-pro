@@ -1,5 +1,6 @@
 spring:
   profiles:
+#    active: yuetai
     active: private
   application:
     name: autocodegen
@@ -14,8 +15,6 @@ mybatis-plus:
     map-underscore-to-camel-case: true
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #    mapper-locations: classpath:mapper/*.xml
-
-
 
 
 

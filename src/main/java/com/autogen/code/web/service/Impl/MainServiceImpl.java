@@ -5,11 +5,13 @@ import com.autogen.code.utils.*;
 import com.autogen.code.web.controller.dto.RequestParameterDto;
 import com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO;
 import com.autogen.code.web.service.MainService;
+import org.apache.struts.util.ResponseUtils;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -33,9 +35,10 @@ public class MainServiceImpl implements MainService {
         String rootUrl = "https://start.springboot.io/starter.zip?";
         String url = rootUrl + requestParameterDto.springBootRequestToString();
         url = url.replace(",mybatis-plus","");
+        // TODO: 2022/3/31    有点问题
         ResponseEntity<byte[]> entity = RestTemplateUtils.get(url, byte[].class);
+//        ResponseEntity<byte[]> entity = RestTemplateUtils.get("https://start.springboot.io/starter.zip?type=maven-project&language=java&bootVersion=2.6.5&baseDir=demo&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&packaging=jar&javaVersion=11", byte[].class);
         byte[] body = entity.getBody();
-
         String zipPath = Constants.DOWN_PATH + requestParameterDto.getArtifactId() + ".zip";
         FileOutputStream outputStream = null;
         try {
@@ -47,6 +50,8 @@ public class MainServiceImpl implements MainService {
         } catch (IOException e) {
             return false;
         }
+
+
     }
 
     /**

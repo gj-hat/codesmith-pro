@@ -35,7 +35,7 @@ import java.security.cert.X509Certificate;
 public class RestTemplateConfiguration {
 
     /**
-     * 实例化RestTeamplate对象 ---> 设置其为HttpClient模式 --->
+     * 实例化RestTemplate对象 ---> 设置其为HttpClient模式 --->
      */
     @Bean
     public RestTemplate restTemplate() throws NoSuchAlgorithmException, KeyStoreException, KeyManagementException {

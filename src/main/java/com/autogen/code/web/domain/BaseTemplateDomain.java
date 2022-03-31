@@ -22,7 +22,7 @@ public class BaseTemplateDomain {
     @TableField(fill = FieldFill.INSERT) //创建时自动填充
     private String createTime = null;
     private String templateName;
-    private String author;
+    private String templateAuthor;
 
 
 

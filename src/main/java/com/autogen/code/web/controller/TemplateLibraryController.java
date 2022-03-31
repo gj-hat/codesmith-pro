@@ -21,7 +21,7 @@ public class TemplateLibraryController {
      * 分页查找
      * @param pageNum   页数
      */
-    @RequestMapping("/findAll")
+    @RequestMapping("/list")
     public TemplateLibraryVo findAll(int pageNum) {
         return templateLibraryService.findPaging(pageNum);
     }

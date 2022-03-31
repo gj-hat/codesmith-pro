@@ -7,7 +7,6 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.app.VelocityEngine;
-
 import java.io.*;
 import java.util.Map;
 import java.util.Properties;
@@ -20,7 +19,6 @@ import java.util.Properties;
  * @version: $
  */
 public class GenUtils {
-
 
     /**
      * @param data                  模板参数
