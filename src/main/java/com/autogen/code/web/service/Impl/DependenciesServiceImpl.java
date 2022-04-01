@@ -36,4 +36,17 @@ public class DependenciesServiceImpl extends ServiceImpl<DependenciesMapper, Dep
         return dependenciesVo;
 
     }
+
+
+    /**
+     * list
+     * @return
+     */
+    @Override
+    public DependenciesVo findAll() {
+        DependenciesVo dependenciesVo = new DependenciesVo();
+        dependenciesVo.setDependenciesDomains(dependenciesMapper.selectList(null));
+        return dependenciesVo;
+
+    }
 }

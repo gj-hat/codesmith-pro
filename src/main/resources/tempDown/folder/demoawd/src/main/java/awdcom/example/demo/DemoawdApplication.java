@@ -1,13 +1,13 @@
-package PackageName;
+package awdcom.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NameApplication {
+public class DemoawdApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NameApplication.class, args);
+		SpringApplication.run(DemoawdApplication.class, args);
 	}
 
 }

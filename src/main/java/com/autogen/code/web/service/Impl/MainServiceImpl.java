@@ -29,15 +29,16 @@ import java.util.Map;
 @Service
 public class MainServiceImpl implements MainService {
 
+
     @Override
     public Boolean downZip(RequestParameterDto requestParameterDto) {
 
         String rootUrl = "https://start.springboot.io/starter.zip?";
         String url = rootUrl + requestParameterDto.springBootRequestToString();
         url = url.replace(",mybatis-plus","");
+        System.out.println("url = " + url);
         // TODO: 2022/3/31    有点问题
         ResponseEntity<byte[]> entity = RestTemplateUtils.get(url, byte[].class);
-//        ResponseEntity<byte[]> entity = RestTemplateUtils.get("https://start.springboot.io/starter.zip?type=maven-project&language=java&bootVersion=2.6.5&baseDir=demo&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&packaging=jar&javaVersion=11", byte[].class);
         byte[] body = entity.getBody();
         String zipPath = Constants.DOWN_PATH + requestParameterDto.getArtifactId() + ".zip";
         FileOutputStream outputStream = null;

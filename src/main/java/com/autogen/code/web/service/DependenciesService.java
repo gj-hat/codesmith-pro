@@ -15,4 +15,5 @@ public interface DependenciesService extends IService<DependenciesDomain> {
     DependenciesVo findByPaging(int numPage);
 
 
+    DependenciesVo findAll();
 }

@@ -22,14 +22,25 @@ public class DependenciesController {
      *
      * @param pageNum    页数
      */
-    @RequestMapping("/list")
+    @RequestMapping("/listByPage")
     public DependenciesVo findAll(int pageNum) {
         return dependenciesService.findByPaging(pageNum);
     }
 
 
+    /**
+     * list
+     *
+     */
+    @RequestMapping("/list")
+    public DependenciesVo list() {
+        return dependenciesService.findAll();
+    }
 
-    @RequestMapping("/del")
+
+
+
+    @RequestMapping("/delById")
     public void del(int delId) {
         dependenciesService.removeById(delId);
     }

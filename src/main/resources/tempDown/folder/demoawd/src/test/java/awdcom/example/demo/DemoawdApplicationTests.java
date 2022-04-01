@@ -1,10 +1,10 @@
-package PackageName;
+package awdcom.example.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NameApplicationTests {
+class DemoawdApplicationTests {
 
 	@Test
 	void contextLoads() {
