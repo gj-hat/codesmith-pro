@@ -1,0 +1,17 @@
+##package com.gjstudy.velocitystudy.web.mapper;
+package ${package}.web.mapper;
+import ${package}.web.domain.User;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface ${className}Mapper} {
+    List<${className}> list();
+
+    void save();
+
+    void update(${className} ${genUtils.bigToSmall(${className})});
+
+    void del(int[] ids);
+}
