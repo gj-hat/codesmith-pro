@@ -5,13 +5,11 @@ import com.autogen.code.utils.*;
 import com.autogen.code.web.controller.dto.RequestParameterDto;
 import com.autogen.code.web.domain.vo.ManageLibraryUnionQueryVO;
 import com.autogen.code.web.service.MainService;
-import org.apache.struts.util.ResponseUtils;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.*;
 import java.sql.SQLException;
